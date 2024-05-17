@@ -22,7 +22,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 mongoose
-    .connect(process.env.DB, {
+    .connect(process.env.MONGODBI_UR, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })

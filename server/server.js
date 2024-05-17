@@ -42,7 +42,7 @@ app.use(errorHandler);
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, '../src/build')));
+app.use(express.static(path.join(__dirname, '../client/build')));
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
 app.get('*', (req, res) => {

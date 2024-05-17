@@ -3,7 +3,7 @@ import item from "./model/lostItem.js"; // Import your Mongoose model
 
 // Connect to MongoDB
 mongoose.connect(
-  "mongodb+srv://samop251:ZyanZyan@cluster0.80isong.mongodb.net/lost-and-found?retryWrites=true&w=majority",
+  "mongodb+srv://samop251:test12345@cluster0.80isong.mongodb.net/lost-and-found?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

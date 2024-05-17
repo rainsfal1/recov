@@ -64,8 +64,8 @@ export const ItemCard: React.FC<ItemCardProps> = ({
                         {shortDescription}
                     </p>
                     <div className="flex mt-3 items-center gap-2 text-sm sm:text-sm text-gray-500 dark:text-gray-400">
-                        <CalendarIcon className="w-10 h-10 sm:w-6 sm:h-6" />
-                        <span>Date Reported: {date}</span>
+                        <CalendarIcon className="w-10 h-10 sm:w-6 sm:h-6"/>
+                        <span>Date Reported: {date.toString()}</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm sm:text-sm text-gray-500 dark:text-gray-400">
                         <TagIcon className="w-6 h-6 sm:w-6 sm:h-6" />

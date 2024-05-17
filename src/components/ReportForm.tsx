@@ -244,12 +244,11 @@ export const ReportForm: React.FC<ReportFormProps> = ({ title , formType}) => {
               />
               <UploadImage image={image} setImage={setImage} />
               <Button
-                className="w-full h-16 bg-gray-900 text-white text-xl hover:bg-gray-800 focus:ring-gray-500 rounded-xl py-4 animate-fade-in-up"
-                type="submit"
-                onClick={handleSubmit}
-                disabled={isSubmitting} // Disable the button when the form is being submitted
+                  className="h-16 text-xl cursor-pointer overflow-visible rounded border-none bg-[#262626] px-7 text-center text-[#e5e5e5e5] shadow-md transition-colors duration-150 ease-out hover:bg-[#333333] active:bg-[#444444] active:text-[#ffffff]"
+                  type="submit"
+                  disabled={isSubmitting}
               >
-                {isSubmitting ? <FormLoader /> : 'Submit'} {/* Render the loader when the form is being submitted */}
+                {isSubmitting ? <FormLoader height="1rem" /> : 'Submit Claim'}
               </Button>
             </>
           )}

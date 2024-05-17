@@ -6,6 +6,8 @@ import { Button } from "../../../@/components/ui/button";
 import { CardContent, Card } from "../../../@/components/ui/card";
 import { UploadIcon } from "../../../public/itemIcons/itemIcons";
 import { useUserContext } from "../../context/userContext.tsx";
+import { FormLoader } from "../../../public/Loader/FormLoader";
+import {useNavigate} from "react-router-dom";
 
 interface ClaimModalProps {
     isOpen: boolean;
@@ -18,6 +20,7 @@ export const ClaimModal: React.FC<ClaimModalProps> = ({
                                                           onClose,
                                                           itemId,
                                                       }) => {
+
     console.log("ClaimModal", itemId);
     const modalClass = isOpen
         ? "opacity-100 pointer-events-auto"
@@ -69,6 +72,8 @@ function FormComponent({ onClose, itemId }) {
     const [imageError, setImageError] = useState("");
     const [message, setMessage] = useState({ type: "", text: "" });
     const { token } = useUserContext();
+    const navigate = useNavigate(); // Add this line
+    const [isSubmitting, setIsSubmitting] = useState(false); // Add this line
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -77,6 +82,8 @@ function FormComponent({ onClose, itemId }) {
             setDescriptionError("Description is required");
             return;
         }
+
+        setIsSubmitting(true); // Move this line here
 
         const claim = {
             description,
@@ -103,12 +110,15 @@ function FormComponent({ onClose, itemId }) {
                     console.log("Hello");
                     setMessage({ type: "success", text: "Claim submitted successfully" });
                     setDescriptionError(""); // clear description error
+                    navigate('/'); // Add this line
                 } else {
                     setMessage({ type: "error", text: "Failed to submit claim" });
                 }
             } catch (error) {
                 console.error("Error submitting claim:", error);
                 setMessage({ type: "error", text: "Failed to submit claim" });
+            } finally {
+                setIsSubmitting(false); // Add this line
             }
         };
         createNewClaim();
@@ -194,10 +204,11 @@ function FormComponent({ onClose, itemId }) {
                     Back
                 </button>
                 <Button
-                    className="bg-gray-950 h-14 text-stone-50 text-xl transition-colors duration-500 ease-in-out transform hover:bg-gray-800"
+                    className="h-16 text-xl cursor-pointer overflow-visible rounded border-none bg-[#262626]  text-center text-[#e5e5e5e5] shadow-md transition-colors duration-150 ease-out hover:bg-[#333333] active:bg-[#444444] active:text-[#ffffff]"
                     type="submit"
+                    disabled={isSubmitting}
                 >
-                    Submit Claim
+                    {isSubmitting ? <FormLoader /> : 'Submit Claim'}
                 </Button>
             </div>
         </form>

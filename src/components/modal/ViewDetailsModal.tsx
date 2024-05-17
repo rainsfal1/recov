@@ -103,8 +103,9 @@ export const ViewDetailsModal: React.FC<ViewDetailsModalProps> = ({
                                 Close
                             </Button>
                             <Button
-                                className="h-16 text-xl cursor-pointer overflow-visible rounded border-none bg-[#262626] px-7 text-center text-[#e5e5e5] shadow-md transition-colors duration-150 ease-out hover:bg-[#333333] active:bg-[#444444] active:text-[#ffffff]"
+                                className="h-16 text-xl cursor-pointer overflow-visible rounded border-none bg-[#262626] px-7 text-center text-[#e5e5e5e5] shadow-md transition-colors duration-150 ease-out hover:bg-[#333333] active:bg-[#444444] active:text-[#ffffff]"
                                 onClick={handleClaimClick}
+                                style={{ display: item.itemType === "Found" ? "block" : "none" }}
                             >
                                 Claim
                             </Button>

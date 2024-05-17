@@ -38,8 +38,7 @@ app.use("/api/v1/claim", claimRouter);
 app.use(errorHandler);
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, '../client/build')));
-
+app.use(express.static(path.join(__dirname, '../src/build')));
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
 app.get('*', (req, res) => {

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { PageIcon } from "../../../../public/pageIcon/pageIcon.tsx";
-import { SearchIcon, ArrowUpDownIcon } from "../../../../public/itemIcons/itemIcons.tsx";
+import { SearchIcon } from "../../../../public/itemIcons/itemIcons.tsx";
 import { Input } from "../../../../@/components/ui/input.tsx";
 import React from "react";
 import {SortBy} from "../../../components/SortBy.tsx";

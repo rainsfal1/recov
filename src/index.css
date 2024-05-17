@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: Sniglet, sans-serif;
+    font-weight: 400;
+    min-height: 100vh;
+    background-color: #ffffff;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.fade-enter {
+    opacity: 0;
+    transform: translateY(20%);
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 350ms, transform 350ms;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 350ms;
+}
+
+.calendar-transition {
+    transition: all 350ms ease-in-out;
+}
+
+.calendar-transition.entering {
+    transform: scale(0);
+    opacity: 0;
+}
+
+.calendar-transition.entered {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.calendar-transition.exiting {
+    transform: scale(0);
+    opacity: 0;
+}
+

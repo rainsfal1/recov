@@ -4,7 +4,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 export function Pagination({
                                currentPage,
                                totalPages,
-                               baseRoute,
                                onPageChange,
                            }) {
     const navigate = useNavigate();

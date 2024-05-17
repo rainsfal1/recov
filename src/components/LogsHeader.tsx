@@ -2,10 +2,10 @@ import {Link} from "react-router-dom";
 import { PageIcon } from "../../public/pageIcon/pageIcon.tsx"
 import {ArrowUpDownIcon, SearchIcon} from "../../public/itemIcons/itemIcons.tsx";
 import {Input} from "../../@/components/ui/input.tsx";
-import {useState} from "react";
 import { useNavigate } from 'react-router-dom';
 
-export function LogsHeader({ title, placeholder, baseRoute }) {
+export function LogsHeader
+({ title, placeholder, baseRoute, selectedOption, setSelectedOption, options }) {
     const navigate = useNavigate();
 
     const handleSearch = (event) => {
@@ -26,38 +26,36 @@ export function LogsHeader({ title, placeholder, baseRoute }) {
             </div>
             <div className="flex items-center gap-4 w-full sm:w-auto">
                 <div className="relative flex-1 sm:flex-initial">
-                    <SearchIcon className="absolute left-3 pr-6 top-1/2 -translate-y-1/2 w-14 h-14 text-gray-500" />
+                    <SearchIcon className="absolute left-3  pr-6 top-1/2 -translate-y-1/2 w-14 h-14 text-gray-500" />
                     <Input
-                        className="w-full pr-32 py-8 text-lg rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-white sm:w-auto"
+                        className="w-full pr-32 py-8 pl-12 text-lg rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-white sm:w-auto"
                         placeholder={placeholder}
                         type="text"
+                        onChange={handleSearch} // Use handleSearch here
                     />
                 </div>
-                <SortBy/>
+                <SortBy selectedOption={selectedOption} setSelectedOption={setSelectedOption} options={options} />
             </div>
         </div>
     );
 }
 
-
-export default function SortBy() {
-    const [selectedOption, setSelectedOption] = useState('');
-
+export function SortBy({ selectedOption, setSelectedOption, options }) {
     const handleChange = (event) => {
         setSelectedOption(event.target.value);
-        // You can use the selectedOption state variable in your sorting function
     };
 
     return (
         <div className="flex items-center gap-2 text-lg bg-gray-800 text-white py-4 px-4 rounded hover:bg-gray-700">
             <ArrowUpDownIcon className="h-6 w-6" />
 
-            <select className="bg-transparent text-white" onChange={handleChange}>
-                <option value="dateReported">Date Reported</option>
-                <option value="status">Status</option>
-                <option value="itemName">Item Name</option>
+            <select className="bg-transparent text-white" onChange={handleChange} value={selectedOption}>
+                {options.map((option) => (
+                    <option key={option.value} value={option.value}>
+                        {option.label}
+                    </option>
+                ))}
             </select>
         </div>
     )
 }
-

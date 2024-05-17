@@ -2,24 +2,14 @@
 import { Button } from "../../../../@/components/ui/button";
 import {
   Trash2Icon,
-  XIcon,
-  CheckIcon,
-  EyeIcon,
 } from "../../../../public/itemIcons/itemIcons.tsx";
-import { useState } from "react";
 
 export function TableRow({
   data,
-  onAccept = () => console.log("Accepted clicked"),
-  onReject = () => console.log("Reject clicked"),
+
   onDelete = () => console.log("Delete clicked"),
 }) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleViewDetails = (data) => {
-    console.log("View Details clicked", data);
-    setIsModalOpen(true);
-  };
 
   let statusColor;
   if (data.status === "Pending") {

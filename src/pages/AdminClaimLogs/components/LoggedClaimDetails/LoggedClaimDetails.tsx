@@ -5,6 +5,7 @@ import {CheckIcon, XIcon} from "../../../../../public/itemIcons/itemIcons.tsx";
 import {ClaimModal} from "../../../../components/modal/ClaimModal.tsx";
 
 interface ItemProps {
+    _id: string;
     title: string;
     description: string;
     image: string;
@@ -19,9 +20,11 @@ interface ViewDetailsModalProps {
     isOpen: boolean;
     onClose: () => void;
     item: ItemProps;
+    onAccept: (item: ItemProps) => void;
+    onReject: (item: ItemProps) => void;
 }
 
-export const LoggedClaimDetails: React.FC<ViewDetailsModalProps> = ({ isOpen, onClose, item }) => {
+export const LoggedClaimDetails: React.FC<ViewDetailsModalProps> = ({ isOpen, onClose, item, onAccept, onReject }) => {
     const [isClaimModalOpen, setIsClaimModalOpen] = useState(false);
     const modalClass = isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none';
     const defaultImage = "/public/placeholderImg.svg"; // replace with your default image path
@@ -31,7 +34,7 @@ export const LoggedClaimDetails: React.FC<ViewDetailsModalProps> = ({ isOpen, on
     };
 
     if (isClaimModalOpen) {
-        return <ClaimModal isOpen={isClaimModalOpen} onClose={() => setIsClaimModalOpen(false)} />;
+        return <ClaimModal isOpen={isClaimModalOpen} onClose={() => setIsClaimModalOpen(false)} itemId={item._id} />;
     }
 
     return (

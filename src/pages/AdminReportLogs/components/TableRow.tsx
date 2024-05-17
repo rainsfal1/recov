@@ -6,56 +6,51 @@ import {
   CheckIcon,
   EyeIcon,
 } from "../../../../public/itemIcons/itemIcons.tsx";
-import { useState } from "react";
-// import {LoggedClaimDetails} from './LoggedClaimDetails/LoggedClaimDetails.tsx'; // Import your modal component
 
 export function TableRow({
-  data,
-  onAccept = (data) => {
-    const fetchData = async () => {
-      try {
-        const claimId = data._id;
-        console.log("Claim ID", claimId);
-        const response = await fetch(
-          `http://localhost:3000/api/v1/items/acceptRequest?claimId=${claimId}`,
-          {
-            method: "PATCH",
-          }
-        );
-        const responseData = await response.json();
-        console.log(responseData);
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    };
-    fetchData();
-  },
-  onReject = (data) => {
-    const fetchData = async () => {
-      try {
-        const claimId = data._id;
-        console.log("Claim ID", claimId);
-        const response = await fetch(
-          `http://localhost:3000/api/v1/items/rejectRequest?claimId=${claimId}`,
-          {
-            method: "PATCH",
-          }
-        );
-        const responseData = await response.json();
-        console.log(responseData);
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    };
-    fetchData();
-  },
-  onDelete = (data) => console.log("Delete clicked"),
-}) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleViewDetails = (data) => {
+                           data,
+                           onAccept = () => {
+                             const fetchData = async () => {
+                               try {
+                                 const claimId = data._id;
+                                 console.log("Claim ID", claimId);
+                                 const response = await fetch(
+                                     `http://localhost:3000/api/v1/items/acceptRequest?claimId=${claimId}`,
+                                     {
+                                       method: "PATCH",
+                                     }
+                                 );
+                                 const responseData = await response.json();
+                                 console.log(responseData);
+                               } catch (error) {
+                                 console.error("Error:", error);
+                               }
+                             };
+                             fetchData();
+                           },
+                           onReject = () => {
+                             const fetchData = async () => {
+                               try {
+                                 const claimId = data._id;
+                                 console.log("Claim ID", claimId);
+                                 const response = await fetch(
+                                     `http://localhost:3000/api/v1/items/rejectRequest?claimId=${claimId}`,
+                                     {
+                                       method: "PATCH",
+                                     }
+                                 );
+                                 const responseData = await response.json();
+                                 console.log(responseData);
+                               } catch (error) {
+                                 console.error("Error:", error);
+                               }
+                             };
+                             fetchData();
+                           },
+                           onDelete = () => console.log("Delete clicked"),
+                         }) {
+  const handleViewDetails = () => {
     console.log("View Details clicked", data);
-    setIsModalOpen(true);
   };
 
   let statusColor;
@@ -92,7 +87,7 @@ export function TableRow({
         <td>
           <div className="ml-16  py-9 flex flex-col items-start space-y-2 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-5 sm:px-6">
             <Button
-              onClick={() => onAccept(data)}
+              onClick={() => onAccept()}
               className="text-green-500 px-5 py-6 hover:bg-green-100 focus:ring-green-500"
               size="sm"
               variant="outline"
@@ -101,7 +96,7 @@ export function TableRow({
               <p className="text-lg">Accept</p>
             </Button>
             <Button
-              onClick={() => onReject(data)}
+              onClick={() => onReject()}
               className="text-red-500 hover:bg-red-100 px-4 py-6 focus:ring-red-500"
               size="sm"
               variant="outline"
@@ -110,7 +105,7 @@ export function TableRow({
               <p className="text-lg">Deny</p>
             </Button>
             <Button
-              onClick={() => handleViewDetails(data)}
+              onClick={() => handleViewDetails()}
               className="px-4 py-6"
               variant="outline"
             >
@@ -118,7 +113,7 @@ export function TableRow({
               <span className="sr-only ">View Details</span>
             </Button>
             <Button
-              onClick={() => onDelete(data)}
+              onClick={() => onDelete()}
               className="px-4 py-6 text-red-500 hover:bg-red-100 focus:ring-red-500"
               size="sm"
               variant="outline"

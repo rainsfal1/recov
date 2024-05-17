@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { Button } from "../../../../@/components/ui/button";
-import { DropdownMenuTrigger, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem, DropdownMenuContent, DropdownMenu } from "../../../../@/components/ui/dropdown-menu";
 import { PageIcon } from "../../../../public/pageIcon/pageIcon.tsx";
 import {LogOutIcon} from "../../../../public/optionIcons/optionItems.tsx";
 

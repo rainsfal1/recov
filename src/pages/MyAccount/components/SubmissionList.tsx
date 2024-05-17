@@ -16,8 +16,7 @@ export const SubmissionsList: React.FC<SubmissionsListProps> = ({
                                                                   submissions,
                                                                 }) => (
     <div className="divide-y rounded-lg border">
-      {submissions.map((submission) => (
-          <SubmissionItem {...submission} key={submission.id} />
-      ))}
+        {submissions.map((submission) => {
+            return <SubmissionItem {...submission} key={submission.id} status={submission.status === "false" ? "Found" : "Lost"} />;        })}
     </div>
 );

@@ -149,9 +149,11 @@ export function TableRow({
         </td>
       </div>
       <LoggedClaimDetails
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        item={data.item}
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          item={data.item}
+          onAccept={onAccept} // Pass onAccept as a prop
+          onReject={onReject} // Pass onReject as a prop
       />
     </tr>
   );

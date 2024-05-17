@@ -137,7 +137,6 @@ export const ReportForm: React.FC<ReportFormProps> = ({ title , formType}) => {
     };
     report["userName"] = report["name"];
     delete report["name"];
-    let url;
     console.log(report);
     // Here you can handle the report object, for example send it to an API
     const data = new FormData();
@@ -248,7 +247,7 @@ export const ReportForm: React.FC<ReportFormProps> = ({ title , formType}) => {
                   type="submit"
                   disabled={isSubmitting}
               >
-                {isSubmitting ? <FormLoader height="1rem" /> : 'Submit Claim'}
+                {isSubmitting ? <FormLoader top="1.7rem" /> : 'Submit Claim'}
               </Button>
             </>
           )}
@@ -284,8 +283,8 @@ export const FoundDetails: React.FC<FoundDetailsProps> = ({
     // Check if the input is a number, a slash, or a backspace
     const lastChar = input.charAt(input.length - 1);
     if (
-      !lastChar.match(/[0-9/]/) &&
-      e.nativeEvent.inputType !== "deleteContentBackward"
+        !lastChar.match(/[0-9/]/) &&
+        (e.nativeEvent as InputEvent).inputType !== "deleteContentBackward"
     ) {
       input = input.substring(0, input.length - 1);
     }
@@ -297,13 +296,13 @@ export const FoundDetails: React.FC<FoundDetailsProps> = ({
 
     // Add slashes after the 2nd and 5th characters
     if (
-      (input.length === 2 || input.length === 5) &&
-      e.nativeEvent.inputType !== "deleteContentBackward"
+        (input.length === 2 || input.length === 5) &&
+        (e.nativeEvent as InputEvent).inputType !== "deleteContentBackward"
     ) {
       input += "/";
     } else if (
-      (input.length === 3 || input.length === 6) &&
-      e.nativeEvent.inputType === "deleteContentBackward"
+        (input.length === 3 || input.length === 6) &&
+        (e.nativeEvent as InputEvent).inputType === "deleteContentBackward"
     ) {
       input = input.slice(0, -1);
     }

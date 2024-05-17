@@ -1,7 +1,8 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import path from "path";
+import path, { dirname } from "path";
+import { fileURLToPath } from 'url';
 import mongoose from "mongoose";
 import userRouter from "./routes/userRoutes.js";
 import dotenv from "dotenv";
@@ -25,7 +26,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 mongoose
-    .connect(process.env.MONGODBI_UR, {
+    .connect(process.env.MONGODBI_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
@@ -36,6 +37,9 @@ app.use("/api/v1/", userRouter);
 app.use("/api/v1/items", lostRequestRouter);
 app.use("/api/v1/claim", claimRouter);
 app.use(errorHandler);
+
+// Define __dirname in ES6 module
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '../src/build')));

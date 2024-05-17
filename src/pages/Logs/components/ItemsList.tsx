@@ -61,17 +61,17 @@ export function ItemsList({ items, sortOption }: ItemsListProps) {
     switch (sortOption) {
       case "itemName":
         newSortedItems = [...items].sort((a, b) =>
-          a.itemName.localeCompare(b.itemName)
+            a.itemName.localeCompare(b.itemName)
         );
         break;
       case "dateReported":
         newSortedItems = [...items].sort(
-          (a, b) => new Date(a.date) - new Date(b.date)
+            (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
         );
         break;
       case "status":
         newSortedItems = [...items].sort((a, b) =>
-          a.itemType.localeCompare(b.itemType)
+            a.itemType.localeCompare(b.itemType)
         );
         break;
       default:

@@ -6,10 +6,10 @@ import cookieParser from "cookie-parser";
 import path, { dirname } from "path";
 import { fileURLToPath } from 'url';
 import mongoose from "mongoose";
-import userRouter from "./routes/userRoutes.js";
-import lostRequestRouter from "./routes/lostRequestRoutes.js";
-import errorHandler from "./middleware/errorhandling.js";
-import claimRouter from "./routes/claimRoutes.js";
+import userRouter from "./server/routes/userRoutes.js";
+import lostRequestRouter from "./server/routes/lostRequestRoutes.js";
+import errorHandler from "./server/middleware/errorhandling.js";
+import claimRouter from "./server/routes/claimRoutes.js";
 
 const app = express();
 

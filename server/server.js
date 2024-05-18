@@ -1,16 +1,15 @@
 import express from "express";
+import dotenv from "dotenv";
+dotenv.config({ path: "../config.env" });
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import path, { dirname } from "path";
 import { fileURLToPath } from 'url';
 import mongoose from "mongoose";
 import userRouter from "./routes/userRoutes.js";
-import dotenv from "dotenv";
 import lostRequestRouter from "./routes/lostRequestRoutes.js";
 import errorHandler from "./middleware/errorhandling.js";
 import claimRouter from "./routes/claimRoutes.js";
-
-dotenv.config({ path: "./config.env" });
 
 const app = express();
 
@@ -26,7 +25,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 mongoose
-    .connect(process.env.MONGODBI_URI, {
+    .connect(process.env.MONGODB_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
@@ -43,10 +42,12 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '../build')));
+
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
-res.sendFile(path.join(__dirname, '../build/index.html'));
-
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

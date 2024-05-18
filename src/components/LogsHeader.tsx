@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import { PageIcon } from "../../public/pageIcon/pageIcon"
+import { PageIcon } from "../../public/pageIcon/PageIcon"
 import {ArrowUpDownIcon, SearchIcon} from "../../public/itemIcons/itemIcons";
 import {Input} from "../../@/components/ui/input";
 import { useNavigate } from 'react-router-dom';

@@ -3,7 +3,7 @@ import {
   LogOutIcon,
   BellIcon,
 } from "../../../../public/optionIcons/optionItems";
-import { PageIcon } from "../../../../public/pageIcon/pageIcon";
+import { PageIcon } from "../../../../public/pageIcon/PageIcon";
 import { Button } from "../../../../@/components/ui/button";
 import { Toggle } from "../../../../@/components/ui/toggle";
 import React, { useEffect, useState } from "react";

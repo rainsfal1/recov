@@ -6,11 +6,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, 'index.html'),
-        src: path.resolve(__dirname, './src/index.tsx'),
-        server: path.resolve(__dirname, './server/server.js'),
-      },
+      input: path.resolve(__dirname, 'index.html'),
     },
   },
   resolve: {

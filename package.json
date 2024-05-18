@@ -13,6 +13,10 @@
     "preview": "vite preview",
     "heroku-postbuild": "cd src && npm install && npm run build"
   },
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^5.13.8",

@@ -36,7 +36,7 @@ const getInitialStateValueFromCookie = () => {
 
 function UserContextProvider({ children }: { children: React.ReactNode }) {
   const [loggedIn, setLoggedIn] = useState(
-    getInitialStateValueFromCookie().loggedIn
+      getInitialStateValueFromCookie().loggedIn === 'true'
   );
   const [userType, setUserType] = useState(
     getInitialStateValueFromCookie().userType

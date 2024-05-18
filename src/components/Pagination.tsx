@@ -38,4 +38,4 @@ export function Pagination({
             </button>
         </div>
     );
-};
+}

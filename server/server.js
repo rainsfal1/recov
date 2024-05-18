@@ -40,7 +40,6 @@ app.use(errorHandler);
 // Define __dirname in ES6 module
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-console.log(__dirname); // Log the value of __dirname
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '../dist')));
@@ -48,10 +47,10 @@ app.use(express.static(path.join(__dirname, '../dist')));
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../dist', 'index.html'));
+    res.sendFile(path.join(__dirname, '../dist', 'index.html'));
 });
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}...`);
 });

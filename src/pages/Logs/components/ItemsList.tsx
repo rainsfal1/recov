@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { ItemCard } from "../../../components/ItemCard.tsx";
-import { PackageIcon } from "../../../../public/itemIcons/itemIcons.tsx";
+import { ItemCard } from "../../../components/ItemCard";
+import { PackageIcon } from "../../../../public/itemIcons/itemIcons";
 import {
   GemIcon,
   FileTextIcon,
@@ -8,7 +8,7 @@ import {
   PencilIcon,
   ShoppingBagIcon,
   UserIcon,
-} from "../../../../public/categoryIcons/categoryIcons.tsx";
+} from "../../../../public/categoryIcons/categoryIcons";
 
 interface Item {
   _id: string;

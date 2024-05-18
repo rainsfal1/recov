@@ -5,9 +5,9 @@ import {
   XIcon,
   CheckIcon,
   EyeIcon,
-} from "../../../../public/itemIcons/itemIcons.tsx";
+} from "../../../../public/itemIcons/itemIcons";
 import { useState } from "react";
-import { LoggedClaimDetails } from "./LoggedClaimDetails/LoggedClaimDetails.tsx"; // Import your modal component
+import { LoggedClaimDetails } from "./LoggedClaimDetails/LoggedClaimDetails"; // Import your modal component
 
 export function TableRow({
   data,

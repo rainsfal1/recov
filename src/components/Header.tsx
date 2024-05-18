@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { PageIcon } from '../../public/pageIcon/pageIcon.tsx';
+import { PageIcon } from '../../public/pageIcon/pageIcon';
 
 type HeaderProps = {
   title: string;

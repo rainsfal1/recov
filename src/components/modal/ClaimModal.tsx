@@ -5,7 +5,7 @@ import { Input } from "../../../@/components/ui/input";
 import { Button } from "../../../@/components/ui/button";
 import { CardContent, Card } from "../../../@/components/ui/card";
 import { UploadIcon } from "../../../public/itemIcons/itemIcons";
-import { useUserContext } from "../../context/userContext.tsx";
+import { useUserContext } from "../../context/userContext";
 import { FormLoader } from "../../../public/Loader/FormLoader";
 import {useNavigate} from "react-router-dom";
 

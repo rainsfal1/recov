@@ -4,17 +4,17 @@ import {
   CardTitle,
   CardDescription,
   CardHeader,
-} from "../../@/components/ui/card.tsx";
-import { Label } from "../../@/components/ui/label.tsx";
-import { Input } from "../../@/components/ui/input.tsx";
-import { Button } from "../../@/components/ui/button.tsx";
-import {FormLoader} from "../../public/Loader/FormLoader.tsx";
-import { Textarea } from "../../@/components/ui/textarea.tsx";
-import { UploadIcon, CalendarIcon } from "../../public/itemIcons/itemIcons.tsx";
+} from "../../@/components/ui/card";
+import { Label } from "../../@/components/ui/label";
+import { Input } from "../../@/components/ui/input";
+import { Button } from "../../@/components/ui/button";
+import {FormLoader} from "../../public/Loader/FormLoader";
+import { Textarea } from "../../@/components/ui/textarea";
+import { UploadIcon, CalendarIcon } from "../../public/itemIcons/itemIcons";
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import "react-calendar/dist/Calendar.css";
-import { useUserContext } from "../context/userContext.tsx";
+import { useUserContext } from "../context/userContext";
 interface ReportFormProps {
   title: string;
   formType: 'Found' | 'Lost';
@@ -352,7 +352,7 @@ export const FoundDetails: React.FC<FoundDetailsProps> = ({
   );
 };
 
-// ItemDetails.tsx
+// ItemDetails
 interface ItemDetailsProps {
   itemName: string;
   setItemName: (value: string) => void;
@@ -413,7 +413,7 @@ export const ItemDetails: React.FC<ItemDetailsProps> = ({
   );
 };
 
-// Description.tsx
+// Description
 
 interface DescriptionProps {
   description: string;
@@ -443,7 +443,7 @@ export const Description: React.FC<DescriptionProps> = ({
   );
 };
 
-// ContactDetails.tsx
+// ContactDetails
 
 interface ContactDetailsProps {
   name: string;
@@ -495,7 +495,7 @@ export const ContactDetails: React.FC<ContactDetailsProps> = ({
   );
 };
 
-// UploadImage.tsx
+// UploadImage
 
 interface UploadImageProps {
   image: File | null;

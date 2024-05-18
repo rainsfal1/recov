@@ -1,4 +1,4 @@
-import { PhoneIcon } from "../../../../public/itemIcons/itemIcons.tsx";
+import { PhoneIcon } from "../../../../public/itemIcons/itemIcons";
 
 export function ItemInfo({ title, description, phone }) {
   return (

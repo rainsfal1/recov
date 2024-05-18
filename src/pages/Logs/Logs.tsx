@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { LogsHeader } from "./components/LogsHeader.tsx";
-import { ItemsList } from "./components/ItemsList.tsx";
+import { LogsHeader } from "./components/LogsHeader";
+import { ItemsList } from "./components/ItemsList";
 import { useParams } from "react-router-dom";
-import { ListLoader } from "../../../public/Loader/ListLoader.tsx";
+import { ListLoader } from "../../../public/Loader/ListLoader";
 
 const fetchItemsForPage = async (page) => {
   try {

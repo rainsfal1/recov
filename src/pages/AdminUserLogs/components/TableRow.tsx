@@ -2,7 +2,7 @@
 import { Button } from "../../../../@/components/ui/button";
 import {
   Trash2Icon,
-} from "../../../../public/itemIcons/itemIcons.tsx";
+} from "../../../../public/itemIcons/itemIcons";
 
 export function TableRow({
   data,

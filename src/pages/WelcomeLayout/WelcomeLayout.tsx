@@ -3,7 +3,7 @@ import "./welcomelayout.css";
 import Icon from "./components/Icon";
 import LoginMessage from "./components/LoginMessage";
 import SignIn from "./components/SignIn";
-import SignUpMessage from "./components/SignUpMessage.tsx";
+import SignUpMessage from "./components/SignUpMessage";
 import { NavLink } from "react-router-dom";
 
 export default function WelcomeLayout() {

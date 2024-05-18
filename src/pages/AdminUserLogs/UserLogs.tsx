@@ -1,7 +1,7 @@
 // AdminUserLogs.tsx
-import { LogsHeader } from "../../components/LogsHeader.tsx";
-import { Table } from "./components/Table.tsx";
-import { Pagination } from "../../components/Pagination.tsx";
+import { LogsHeader } from "../../components/LogsHeader";
+import { Table } from "./components/Table";
+import { Pagination } from "../../components/Pagination";
 import { useState, useEffect } from "react";
 
 export default function AdminReportLogs() {

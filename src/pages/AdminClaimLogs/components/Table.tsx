@@ -1,5 +1,5 @@
 // Table.tsx
-import { TableRow } from "./TableRow.tsx";
+import { TableRow } from "./TableRow";
 
 export function Table({ data = [] }) {
   return (

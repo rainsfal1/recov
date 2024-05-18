@@ -3,8 +3,8 @@ import dotenv from "dotenv";
 dotenv.config({ path: "../config.env" });
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import path, { dirname } from "path";
-import { fileURLToPath } from 'url';
+import url from 'url';
+import path from 'path';
 import mongoose from "mongoose";
 import userRouter from "./routes/userRoutes.js";
 import lostRequestRouter from "./routes/lostRequestRoutes.js";
@@ -38,7 +38,8 @@ app.use("/api/v1/claim", claimRouter);
 app.use(errorHandler);
 
 // Define __dirname in ES6 module
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'dist')));
@@ -46,7 +47,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.html'));
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 const PORT = process.env.PORT || 3000;

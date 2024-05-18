@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Header } from '../../components/Header.tsx';
-import { ReportForm } from '../../components/ReportForm.tsx';
-import { RecentItems } from '../../components/RecentItems.tsx';
-import { Tips } from '../../components/Tips.tsx';
+import { Header } from '../../components/Header';
+import { ReportForm } from '../../components/ReportForm';
+import { RecentItems } from '../../components/RecentItems';
+import { Tips } from '../../components/Tips';
 
 export default function FoundReport() {
   const [recentItems, setRecentItems] = useState([]);

@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
-import { PageIcon } from "../../public/pageIcon/pageIcon.tsx"
-import {ArrowUpDownIcon, SearchIcon} from "../../public/itemIcons/itemIcons.tsx";
-import {Input} from "../../@/components/ui/input.tsx";
+import { PageIcon } from "../../public/pageIcon/pageIcon"
+import {ArrowUpDownIcon, SearchIcon} from "../../public/itemIcons/itemIcons";
+import {Input} from "../../@/components/ui/input";
 import { useNavigate } from 'react-router-dom';
 
 export function LogsHeader

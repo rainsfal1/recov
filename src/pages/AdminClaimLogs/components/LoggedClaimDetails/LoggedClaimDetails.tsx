@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Button } from "../../../../../@/components/ui/button";
 import { CardContent, Card } from "../../../../../@/components/ui/card";
-import {CheckIcon, XIcon} from "../../../../../public/itemIcons/itemIcons.tsx";
-import {ClaimModal} from "../../../../components/modal/ClaimModal.tsx";
+import {CheckIcon, XIcon} from "../../../../../public/itemIcons/itemIcons";
+import {ClaimModal} from "../../../../components/modal/ClaimModal";
 
 interface ItemProps {
     _id: string;

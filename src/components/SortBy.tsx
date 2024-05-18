@@ -1,4 +1,4 @@
-import { ArrowUpDownIcon } from "../../public/itemIcons/itemIcons.tsx";
+import { ArrowUpDownIcon } from "../../public/itemIcons/itemIcons";
 
 export function SortBy({ selectedOption, setSelectedOption, options }) {
     const handleChange = (event) => {

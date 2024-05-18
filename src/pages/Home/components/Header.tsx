@@ -2,12 +2,12 @@ import {
   MoonIcon,
   LogOutIcon,
   BellIcon,
-} from "../../../../public/optionIcons/optionItems.tsx";
-import { PageIcon } from "../../../../public/pageIcon/pageIcon.tsx";
+} from "../../../../public/optionIcons/optionItems";
+import { PageIcon } from "../../../../public/pageIcon/pageIcon";
 import { Button } from "../../../../@/components/ui/button";
 import { Toggle } from "../../../../@/components/ui/toggle";
 import React, { useEffect, useState } from "react";
-import { useUserContext } from "../../../context/userContext.tsx";
+import { useUserContext } from "../../../context/userContext";
 export const Header: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
   const { setLoggedIn } = useUserContext();

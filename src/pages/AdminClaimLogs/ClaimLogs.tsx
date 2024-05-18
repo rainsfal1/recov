@@ -2,7 +2,7 @@
 import { LogsHeader } from "../../components/LogsHeader";
 import { Table } from "./components/Table";
 import { useEffect, useState } from "react";
-import { Pagination } from "../../components/Pagination.tsx";
+import { Pagination } from "../../components/Pagination";
 import { useLocation } from "react-router-dom"; // Import useLocation
 
 export default function ClaimLogs() {

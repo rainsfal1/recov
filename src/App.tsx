@@ -13,8 +13,8 @@ import MyAccount from "./pages/MyAccount/MyAccount";
 import Protect from "./Protect";
 import HomePage from "./HomePage";
 import ClaimLogs from "./pages/AdminClaimLogs/ClaimLogs";
-import AdminReportLogs from "./pages/AdminReportLogs/AdminReportLogs.tsx";
-import UserLogs from "./pages/AdminUserLogs/UserLogs.tsx";
+import AdminReportLogs from "./pages/AdminReportLogs/AdminReportLogs";
+import UserLogs from "./pages/AdminUserLogs/UserLogs";
 
 function AnimatedRoutes() {
     const location = useLocation();

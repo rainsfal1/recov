@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import {
   PackageIcon,
   FileTextIcon,
-} from "../../../public/itemIcons/itemIcons.tsx";
+} from "../../../public/itemIcons/itemIcons";
 
 // Import the components
 import { Header } from "./components/Header";
 import { Sidebar } from "./components/Sidebar";
 import { InfoCard } from "./components/InfoCard";
-import { StatisticCard } from "./components/StatisticCard.tsx";
+import { StatisticCard } from "./components/StatisticCard";
 
 export default function AdminDashboard() {
   const [totalLostItems, setTotalLostItems] = useState(0);

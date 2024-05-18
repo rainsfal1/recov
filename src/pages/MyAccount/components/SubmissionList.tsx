@@ -1,6 +1,6 @@
 import React from "react";
-import "./SubmissionItem.tsx";
-import { SubmissionItem } from "./SubmissionItem.tsx";
+import "./SubmissionItem";
+import { SubmissionItem } from "./SubmissionItem";
 interface SubmissionItemProps {
   title: string;
   date: string;

@@ -5,7 +5,7 @@ import {
   Card,
 } from "../../../../@/components/ui/card";
 // import { PieChart } from "./PieChart";
-import { BarChart } from "./BarChart.tsx";
+import { BarChart } from "./BarChart";
 // import { ReportTable } from "./ReportTable.tsx";
 import { useState } from "react";
 

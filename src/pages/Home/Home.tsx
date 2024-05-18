@@ -4,7 +4,7 @@ import { Header } from './components/Header';
 import { Option } from './components/Option';
 import { Footer } from './components/Footer';
 
-import { SearchIcon, LuggageIcon, LogInIcon, UserIcon } from '../../../public/itemIcons/itemIcons.tsx';
+import { SearchIcon, LuggageIcon, LogInIcon, UserIcon } from '../../../public/itemIcons/itemIcons';
 
 export default function Home({ isLoggedIn }) {
   const navigate = useNavigate();

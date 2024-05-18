@@ -1,9 +1,9 @@
-import { Header } from "../../components/Header.tsx";
-import { AccountDetails } from "./components/AccountDetails.tsx";
-import { SubmissionsList } from "./components/SubmissionList.tsx";
-import { ListLoader } from "../../../public/Loader/ListLoader.tsx";
+import { Header } from "../../components/Header";
+import { AccountDetails } from "./components/AccountDetails";
+import { SubmissionsList } from "./components/SubmissionList";
+import { ListLoader } from "../../../public/Loader/ListLoader";
 import { useState, useEffect } from "react";
-import { useUserContext } from "../../context/userContext.tsx";
+import { useUserContext } from "../../context/userContext";
 
 export default function MyAccount() {
   const [submissions, setSubmissions] = useState([]);

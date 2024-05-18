@@ -1,6 +1,6 @@
-import { Card, CardContent } from '../../@/components/ui/card.tsx';
+import { Card, CardContent } from '../../@/components/ui/card';
 import React from 'react';
-import { Button } from '../../@/components/ui/button.tsx';
+import { Button } from '../../@/components/ui/button';
 
 type Item = {
   name: string;

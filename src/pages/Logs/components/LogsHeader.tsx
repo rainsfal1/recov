@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { PageIcon } from "../../../../public/pageIcon/pageIcon.tsx";
-import { SearchIcon } from "../../../../public/itemIcons/itemIcons.tsx";
-import { Input } from "../../../../@/components/ui/input.tsx";
+import { PageIcon } from "../../../../public/pageIcon/pageIcon";
+import { SearchIcon } from "../../../../public/itemIcons/itemIcons";
+import { Input } from "../../../../@/components/ui/input";
 import React from "react";
-import {SortBy} from "../../../components/SortBy.tsx";
+import {SortBy} from "../../../components/SortBy";
 
 interface LogsHeaderProps {
     sortOption: string;

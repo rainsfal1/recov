@@ -1,6 +1,6 @@
-import { PackageIcon } from "../../../../public/itemIcons/itemIcons.tsx";
+import { PackageIcon } from "../../../../public/itemIcons/itemIcons";
 
-import { StatusBadge } from "../../../components/StatusBadge.tsx";
+import { StatusBadge } from "../../../components/StatusBadge";
 
 interface SubmissionItemProps {
     title: string;

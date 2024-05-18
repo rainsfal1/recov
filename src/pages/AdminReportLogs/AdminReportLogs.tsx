@@ -1,8 +1,8 @@
-// AdminClaimLogs.tsx
-import { Table } from "./components/Table.tsx";
+// AdminClaimLogs
+import { Table } from "./components/Table";
 import { useEffect, useState } from "react";
-import { Pagination } from "../../components/Pagination.tsx";
-import { LogsHeader } from "../../components/LogsHeader.tsx";
+import { Pagination } from "../../components/Pagination";
+import { LogsHeader } from "../../components/LogsHeader";
 // import { deleteRecord } from './api'; // Import your API function
 
 // // Sample data for the table

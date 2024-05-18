@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Button } from "../../../../@/components/ui/button";
-import { PageIcon } from "../../../../public/pageIcon/pageIcon.tsx";
-import {LogOutIcon} from "../../../../public/optionIcons/optionItems.tsx";
+import { PageIcon } from "../../../../public/pageIcon/pageIcon";
+import {LogOutIcon} from "../../../../public/optionIcons/optionItems";
 
 export function Header() {
   const handleLogout = () => {

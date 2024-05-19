@@ -32,6 +32,7 @@ mongoose
     .then(() => console.log("DB connection successful!"))
     .catch((err) => console.log("Error connecting to DB: ", err));
 
+
 app.use("/api/v1/", userRouter);
 app.use("/api/v1/items", lostRequestRouter);
 app.use("/api/v1/claim", claimRouter);
@@ -42,15 +43,24 @@ const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, '../dist')));
+app.use(express.static(path.resolve(__dirname, '../dist')));
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
+// This should be placed after all other routes.
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../dist', 'index.html'));
+    console.log('Catch-all route hit');
+    const filePath = path.resolve(__dirname, '/Users/rainsfall/Downloads/recov/dist', 'index.html');
+    console.log(filePath);
+    res.sendFile(filePath, function (err) {
+        if (err) {
+            console.log('Error sending file:', err);
+        }
+    });
 });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}...`);
+    console.log('This is a test log message');
 });

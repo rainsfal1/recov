@@ -83,7 +83,7 @@ body {
 
 /* Styles for sign-in button */
 .sign-in-button {
-    font-size: 24px;
+    font-size: 2rem;
     font-weight: 700;
     text-decoration: none solid rgb(27, 84, 95);
     text-align: center;

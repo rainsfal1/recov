@@ -17,7 +17,7 @@ const app = express();
 app.use(cookieParser());
 app.use(express.json());
 
-const whitelist = ['http://localhost:5173', 'https://recov.live', 'https://www.recov.live'];
+const whitelist = ['http://localhost:5173', 'http://recov.live', 'http://www.recov.live'];
 const corsOptions = {
     origin: function (origin, callback) {
         if (whitelist.indexOf(origin) !== -1) {

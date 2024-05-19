@@ -18,14 +18,7 @@ app.use(cookieParser());
 app.use(express.json());
 
 const corsOptions = {
-    origin: function (origin, callback) {
-        const allowedOrigins = ["http://localhost:5173", "http://localhost:3000"];
-        if (allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
+    origin: "http://localhost:5173",
     credentials: true, // Allow cookies, authorization headers, etc.
 };
 

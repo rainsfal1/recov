@@ -16,7 +16,7 @@ const validateUser = async (
   | { success: false; message: string }
 > => {
   try {
-    const response = await fetch("http://localhost:3000/api/v1/login", {
+    const response = await fetch("/api/v1/login", {
       mode: 'cors',
       method: "POST",
       headers: {

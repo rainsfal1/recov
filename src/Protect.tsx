@@ -13,6 +13,7 @@ export default function Protect({ children }: { children: React.ReactNode }) {
       setLoading(true);
       try {
         const response = await fetch("/api/v1/auth", {
+          mode: 'cors',
           method: "POST",
           headers: {
             "Content-Type": "application/json",

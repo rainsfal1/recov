@@ -1,6 +1,5 @@
 import express from "express";
 import dotenv from "dotenv";
-dotenv.config({ path: "../config.env" });
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import url from 'url';
@@ -11,14 +10,22 @@ import lostRequestRouter from "./routes/lostRequestRoutes.js";
 import errorHandler from "./middleware/errorhandling.js";
 import claimRouter from "./routes/claimRoutes.js";
 
+dotenv.config({ path: "../config.env" });
+
 const app = express();
 
 app.use(cookieParser());
 app.use(express.json());
-app.use(cors());
 
+const whitelist = ['http://localhost:5173', 'https://recov.live', 'https://www.recov.live'];
 const corsOptions = {
-    origin: "http://localhost:5173",
+    origin: function (origin, callback) {
+        if (whitelist.indexOf(origin) !== -1) {
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by CORS'))
+        }
+    },
     credentials: true, // Allow cookies, authorization headers, etc.
 };
 

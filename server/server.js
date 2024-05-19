@@ -17,13 +17,13 @@ const app = express();
 app.use(cookieParser());
 app.use(express.json());
 
-const whitelist = ['http://localhost:5173', 'http://recov.live', 'http://www.recov.live'];
 const corsOptions = {
     origin: function (origin, callback) {
-        if (whitelist.indexOf(origin) !== -1) {
-            callback(null, true)
+        const allowedOrigins = ["http://localhost:5173", "http://localhost:3000"];
+        if (allowedOrigins.includes(origin)) {
+            callback(null, true);
         } else {
-            callback(new Error('Not allowed by CORS'))
+            callback(new Error('Not allowed by CORS'));
         }
     },
     credentials: true, // Allow cookies, authorization headers, etc.

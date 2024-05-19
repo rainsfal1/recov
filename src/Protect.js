@@ -12,7 +12,7 @@ export default function Protect({ children }) {
         const verifyToken = async () => {
             setLoading(true);
             try {
-                const response = await fetch("http://localhost:3000/api/v1/auth", {
+                const response = await fetch("/api/v1/auth", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

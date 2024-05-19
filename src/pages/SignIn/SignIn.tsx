@@ -5,7 +5,7 @@ const validateUser = async (
     | { success: false; message: string }
 > => {
   try {
-    const response = await fetch("http://localhost:3000/api/v1/signin", {
+    const response = await fetch("/api/v1/signin", {
       mode: 'cors',
       method: "POST",
       headers: {

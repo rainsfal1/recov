@@ -88,24 +88,10 @@ const SignIn: React.FC = () => {
       // logic for displaying the error messagem i would recommend displaying a toast notificaiton using "react-hot-toast"
     } else {
       // set the user type and logged in state
-      if (typeof setLoggedIn === 'function') {
-        setLoggedIn(true);
-      } else {
-        console.error('setLoggedIn is not a function');
-      }
-
-      if (typeof setUserType === 'function') {
-        setUserType(result.userType);
-      } else {
-        console.error('setUserType is not a function');
-      }
-
-      if (typeof setToken === 'function') {
-        setToken(result.token);
-      } else {
-        console.error('setToken is not a function');
-      }
-
+      setLoggedIn(true);
+      console.log(typeof setLoggedIn);
+      setUserType(result.userType);
+      setToken(result.token);
       // move to the home page
       navigate("/home");
     }

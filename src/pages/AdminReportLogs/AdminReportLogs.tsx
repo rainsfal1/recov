@@ -186,7 +186,7 @@ export default function AdminReportLogs() {
   const fetchClaimData = async () => {
     console.log("Fetching data...");
     const apiResponse = await fetch(
-      `http://localhost:3000/api/v1/items/getItemsForAdmin/?page=${currentPage}`
+      `/api/v1/items/getItemsForAdmin/?page=${currentPage}`
     );
     const response = await apiResponse.json();
     if (response.ok) {
@@ -202,18 +202,18 @@ export default function AdminReportLogs() {
   return (
     <div className="container mx-auto px-4  md:px-6 md:py-12">
       <LogsHeader
-          title="Report Logs"
-          placeholder="Search Report logs..."
-          baseRoute="/home/report-logs"
-          selectedOption={null} // Add this
-          setSelectedOption={() => {}} // Add this
-          options={[]} // Add this
+        title="Report Logs"
+        placeholder="Search Report logs..."
+        baseRoute="/home/report-logs"
+        selectedOption={null} // Add this
+        setSelectedOption={() => {}} // Add this
+        options={[]} // Add this
       />
       <Table data={claimData} />
       <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={() => setCurrentPage}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={() => setCurrentPage}
       />
     </div>
   );

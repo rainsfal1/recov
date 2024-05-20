@@ -84,6 +84,7 @@ const SignIn: React.FC = () => {
     };
 
     const result = await validateUser(user);
+    console.log(result.success);
     if (!result.success) {
       // logic for displaying the error messagem i would recommend displaying a toast notificaiton using "react-hot-toast"
     } else {
@@ -93,7 +94,7 @@ const SignIn: React.FC = () => {
       setUserType(result.userType);
       setToken(result.token);
       // move to the home page
-      navigate("/signup");
+      navigate("/home");
     }
   };
 

@@ -10,5 +10,12 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  esbuild: {
+    jsxFactory: 'React.createElement',
+    jsxFragment: 'React.Fragment',
+  },
   base: './', // assets will be served relative to the HTML file
+  build: {
+    outDir: 'dist',
+  },
 });

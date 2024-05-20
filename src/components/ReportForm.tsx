@@ -8,19 +8,19 @@ import {
 import { Label } from "../../@/components/ui/label";
 import { Input } from "../../@/components/ui/input";
 import { Button } from "../../@/components/ui/button";
-import {FormLoader} from "../../public/Loader/FormLoader";
+import { FormLoader } from "../../public/Loader/FormLoader";
 import { Textarea } from "../../@/components/ui/textarea";
 import { UploadIcon, CalendarIcon } from "../../public/itemIcons/itemIcons";
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import "react-calendar/dist/Calendar.css";
 import { useUserContext } from "../context/userContext";
 interface ReportFormProps {
   title: string;
-  formType: 'Found' | 'Lost';
+  formType: "Found" | "Lost";
 }
 
-export const ReportForm: React.FC<ReportFormProps> = ({ title , formType}) => {
+export const ReportForm: React.FC<ReportFormProps> = ({ title, formType }) => {
   const [itemName, setItemName] = useState("");
   const [category, setCategory] = useState("");
   const [location, setLocation] = useState("");
@@ -41,7 +41,6 @@ export const ReportForm: React.FC<ReportFormProps> = ({ title , formType}) => {
   const [isNextClicked, setIsNextClicked] = useState(false);
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false); // Add this line
-
 
   const handleNextClick = () => {
     let hasError = false;
@@ -113,7 +112,7 @@ export const ReportForm: React.FC<ReportFormProps> = ({ title , formType}) => {
       setNameError("");
     }
 
-    if (!email ) {
+    if (!email) {
       setEmailError("Email is required");
       hasError = true;
     } else {
@@ -162,21 +161,18 @@ export const ReportForm: React.FC<ReportFormProps> = ({ title , formType}) => {
         report.image = url;
         console.log(report);
 
-        const reportResponse = await fetch(
-          "http://localhost:3000/api/v1/items",
-          {
-            method: "POST",
-            mode: "cors",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ ...report, token }),
-          }
-        );
+        const reportResponse = await fetch("/api/v1/items", {
+          method: "POST",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ ...report, token }),
+        });
         console.log(await reportResponse.json());
 
         // Redirect to the home page after successful submission
-        navigate('/home');
+        navigate("/home");
 
         setIsSubmitting(false); // Set isSubmitting back to false after the form is submitted
 
@@ -211,13 +207,13 @@ export const ReportForm: React.FC<ReportFormProps> = ({ title , formType}) => {
                 categoryError={categoryError}
               />
               <FoundDetails
-                  location={location}
-                  setLocation={setLocation}
-                  date={date}
-                  setDate={setDate}
-                  locationError={locationError}
-                  dateError={dateError}
-                  formType={formType}
+                location={location}
+                setLocation={setLocation}
+                date={date}
+                setDate={setDate}
+                locationError={locationError}
+                dateError={dateError}
+                formType={formType}
               />
               <Description
                 description={description}
@@ -243,11 +239,11 @@ export const ReportForm: React.FC<ReportFormProps> = ({ title , formType}) => {
               />
               <UploadImage image={image} setImage={setImage} />
               <Button
-                  className="h-16 text-xl cursor-pointer overflow-visible rounded border-none bg-[#262626] px-7 text-center text-[#e5e5e5e5] shadow-md transition-colors duration-150 ease-out hover:bg-[#333333] active:bg-[#444444] active:text-[#ffffff]"
-                  type="submit"
-                  disabled={isSubmitting}
+                className="h-16 text-xl cursor-pointer overflow-visible rounded border-none bg-[#262626] px-7 text-center text-[#e5e5e5e5] shadow-md transition-colors duration-150 ease-out hover:bg-[#333333] active:bg-[#444444] active:text-[#ffffff]"
+                type="submit"
+                disabled={isSubmitting}
               >
-                {isSubmitting ? <FormLoader top="1.7rem" /> : 'Submit Claim'}
+                {isSubmitting ? <FormLoader top="1.7rem" /> : "Submit Claim"}
               </Button>
             </>
           )}
@@ -264,17 +260,17 @@ interface FoundDetailsProps {
   setDate: (value: string) => void;
   locationError: string;
   dateError: string;
-  formType: 'Found' | 'Lost';
+  formType: "Found" | "Lost";
 }
 
 export const FoundDetails: React.FC<FoundDetailsProps> = ({
-                                                            location,
-                                                            setLocation,
-                                                            setDate,
-                                                            locationError,
-                                                            dateError,
-                                                            formType, // Destructure formType from the props
-                                                          }) => {
+  location,
+  setLocation,
+  setDate,
+  locationError,
+  dateError,
+  formType, // Destructure formType from the props
+}) => {
   const [dateInput, setDateInput] = useState("");
 
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -283,8 +279,8 @@ export const FoundDetails: React.FC<FoundDetailsProps> = ({
     // Check if the input is a number, a slash, or a backspace
     const lastChar = input.charAt(input.length - 1);
     if (
-        !lastChar.match(/[0-9/]/) &&
-        (e.nativeEvent as InputEvent).inputType !== "deleteContentBackward"
+      !lastChar.match(/[0-9/]/) &&
+      (e.nativeEvent as InputEvent).inputType !== "deleteContentBackward"
     ) {
       input = input.substring(0, input.length - 1);
     }
@@ -296,13 +292,13 @@ export const FoundDetails: React.FC<FoundDetailsProps> = ({
 
     // Add slashes after the 2nd and 5th characters
     if (
-        (input.length === 2 || input.length === 5) &&
-        (e.nativeEvent as InputEvent).inputType !== "deleteContentBackward"
+      (input.length === 2 || input.length === 5) &&
+      (e.nativeEvent as InputEvent).inputType !== "deleteContentBackward"
     ) {
       input += "/";
     } else if (
-        (input.length === 3 || input.length === 6) &&
-        (e.nativeEvent as InputEvent).inputType === "deleteContentBackward"
+      (input.length === 3 || input.length === 6) &&
+      (e.nativeEvent as InputEvent).inputType === "deleteContentBackward"
     ) {
       input = input.slice(0, -1);
     }
@@ -315,7 +311,7 @@ export const FoundDetails: React.FC<FoundDetailsProps> = ({
     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
       <div className="space-y-1">
         <Label htmlFor="location" className="text-3xl">
-          {formType === 'Found' ? 'Location Found' : 'Last Seen At'}
+          {formType === "Found" ? "Location Found" : "Last Seen At"}
         </Label>
         <Input
           className="text-xl  p-8"
@@ -329,7 +325,7 @@ export const FoundDetails: React.FC<FoundDetailsProps> = ({
 
       <div className="space-y-2 ">
         <Label htmlFor="date" className="text-3xl ">
-          {formType === 'Found' ? 'Date found' : 'Lost Date'}
+          {formType === "Found" ? "Date found" : "Lost Date"}
         </Label>
         <div>
           <div className="relative">

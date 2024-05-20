@@ -72,16 +72,13 @@ const SignIn: React.FC = () => {
       return;
     }
 
-    // Check if password is of sufficient length
-    if (password.length < 5) {
-      setErrorMessage("Password should be at least 5 characters long");
-      return;
-    }
 
     const user = {
       email,
       password,
     };
+
+    console.log(user);
 
     const result = await validateUser(user);
     console.log(result.success);

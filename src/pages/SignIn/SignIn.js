@@ -65,10 +65,7 @@ const SignIn = () => {
             password,
         };
         const result = await validateUser(user);
-        if (!result.success) {
-            // logic for displaying the error messagem i would recommend displaying a toast notificaiton using "react-hot-toast"
-        }
-        else {
+        if (result.success) {
             // set the user type and logged in state
             setLoggedIn(true);
             setUserType(result.userType);

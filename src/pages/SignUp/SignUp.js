@@ -42,7 +42,7 @@ const SignUp = () => {
             confirmPassword,
         };
         const signUp = async () => {
-            const response = await fetch('http://localhost:3000/api/v1/signUp', {
+            const response = await fetch('/api/v1/signUp', {
                 method: 'POST',
                 mode: 'cors',
                 headers: {

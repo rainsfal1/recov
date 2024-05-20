@@ -1,12 +1,12 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 // SignIn.tsx
+import { useUserContext } from "../../context/userContext";
 import { useState, useEffect } from "react";
 import Logo from "./components/Logo";
 import EmailInput from "./components/EmailInput";
 import PasswordInput from "./components/PasswordInput";
 import LoginButton from "./components/LoginButton";
 import Footer from "./components/Footer";
-import { useUserContext } from "../../context/userContext";
 import { useNavigate } from "react-router-dom";
 // either returns the user type and token or false
 const validateUser = async (user) => {

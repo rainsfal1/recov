@@ -1,4 +1,6 @@
 // App.tsx
+import React from 'react';
+import { UserContextProvider } from "./context/userContext";
 import {BrowserRouter, Navigate, Route, Routes, useLocation} from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import WelcomeLayout from "./pages/WelcomeLayout/WelcomeLayout";
@@ -49,7 +51,9 @@ function AnimatedRoutes() {
 function App() {
     return (
         <BrowserRouter>
+            <UserContextProvider>
             <AnimatedRoutes />
+            </UserContextProvider>
         </BrowserRouter>
     );
 }

@@ -65,6 +65,7 @@ const SignIn = () => {
             password,
         };
         const result = await validateUser(user);
+        console.log('Result:', result);
         if (result.success) {
             // set the user type and logged in state
             console.log('setLoggedIn function:', setLoggedIn);

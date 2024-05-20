@@ -35,13 +35,12 @@ const getInitialStateValueFromCookie = () => {
 };
 
 function UserContextProvider({ children }: { children: React.ReactNode }) {
+  const initialState = getInitialStateValueFromCookie();
   const [loggedIn, setLoggedIn] = useState(
-      getInitialStateValueFromCookie().loggedIn === 'true'
+      initialState.loggedIn === 'true' ? true : initialState.loggedIn === 'false' ? false : undefined
   );
-  const [userType, setUserType] = useState(
-    getInitialStateValueFromCookie().userType
-  );
-  const [token, setToken] = useState(getInitialStateValueFromCookie().token);
+  const [userType, setUserType] = useState(initialState.userType);
+  const [token, setToken] = useState(initialState.token);
 
   useEffect(() => {
     // Update browser cookies when logged-in state or user type changes
@@ -51,11 +50,11 @@ function UserContextProvider({ children }: { children: React.ReactNode }) {
   }, [loggedIn, userType, token]);
 
   return (
-    <UserContext.Provider
-      value={{ loggedIn, userType, setLoggedIn, setUserType, token, setToken }}
-    >
-      {children}
-    </UserContext.Provider>
+      <UserContext.Provider
+          value={{ loggedIn, userType, setLoggedIn, setUserType, token, setToken }}
+      >
+        {children}
+      </UserContext.Provider>
   );
 }
 

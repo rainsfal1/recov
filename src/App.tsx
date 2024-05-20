@@ -9,7 +9,6 @@ import FoundReport from "./pages/FoundReport/FoundReport";
 import LostReport from "./pages/LostReport/LostReport";
 import Logs from "./pages/Logs/Logs";
 import MyAccount from "./pages/MyAccount/MyAccount";
-// import ItemDetail from "./pages/ItemDetail/ItemDetail";
 import Protect from "./Protect";
 import HomePage from "./HomePage";
 import ClaimLogs from "./pages/AdminClaimLogs/ClaimLogs";

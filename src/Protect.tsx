@@ -12,7 +12,8 @@ export default function Protect({ children }: { children: React.ReactNode }) {
     const verifyToken = async () => {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:3000/api/v1/auth", {
+        const response = await fetch("/api/v1/auth", {
+          mode: 'cors',
           method: "POST",
           headers: {
             "Content-Type": "application/json",

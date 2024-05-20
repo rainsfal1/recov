@@ -8,35 +8,44 @@ import Footer from "./components/Footer";
 import { useUserContext } from "../../context/userContext";
 import { useNavigate } from "react-router-dom";
 
-// either returns the user type and token or false
+
+
 const validateUser = async (
-  user
+    user
 ): Promise<
-  | { success: true; userType: string; token: string }
-  | { success: false; message: string }
+    | { success: true; userType: string; token: string }
+    | { success: false; message: string }
 > => {
   try {
-    const response = await fetch("http://localhost:3000/api/v1/login", {
+    const response = await fetch("/api/v1/signin", {
+      mode: 'cors',
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ email: user.email, password: user.password }),
     });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
     const data = await response.json();
-    // console.log("data from the server", data);
-    if (data.status === "success") {
+    if (data && data.status === "success") {
       console.log("User logged in successfully");
       return { success: true, userType: data.userType, token: data.token };
-    } else {
-      // console.log(data.status);
+    } else if (data) {
       console.error("Error logging in user");
       return { success: false, message: data.message };
+    } else {
+      throw new Error('No data received from server');
     }
   } catch (error) {
     console.error(error);
+    return { success: false, message: error.message };
   }
 };
+
 const SignIn: React.FC = () => {
   const { setLoggedIn, setUserType, setToken } = useUserContext();
   const navigate = useNavigate();
@@ -63,23 +72,22 @@ const SignIn: React.FC = () => {
       return;
     }
 
-    // Check if password is of sufficient length
-    if (password.length < 5) {
-      setErrorMessage("Password should be at least 5 characters long");
-      return;
-    }
 
     const user = {
       email,
       password,
     };
 
+    console.log(user);
+
     const result = await validateUser(user);
+    console.log(result.success);
     if (!result.success) {
       // logic for displaying the error messagem i would recommend displaying a toast notificaiton using "react-hot-toast"
     } else {
       // set the user type and logged in state
       setLoggedIn(true);
+      console.log(typeof setLoggedIn);
       setUserType(result.userType);
       setToken(result.token);
       // move to the home page
@@ -88,19 +96,19 @@ const SignIn: React.FC = () => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex flex-col gap-8 bg-white p-8 l  w-full sm:w-64 md:w-2/6 lg:w-128 mx-auto my-auto min-h-screen"
-    >
-      <Logo />
-      <EmailInput email={email} onSetEmail={setEmail} />
-      <PasswordInput password={password} onSetPassword={setPassword} />
-      {errorMessage && (
-        <div style={{ color: "red", fontSize: 16 }}>{errorMessage}</div>
-      )}
-      <LoginButton />
-      <Footer />
-    </form>
+      <form
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-8 bg-white p-8 l  w-full sm:w-64 md:w-2/6 lg:w-128 mx-auto my-auto min-h-screen"
+      >
+        <Logo />
+        <EmailInput email={email} onSetEmail={setEmail} />
+        <PasswordInput password={password} onSetPassword={setPassword} />
+        {errorMessage && (
+            <div style={{ color: "red", fontSize: 16 }}>{errorMessage}</div>
+        )}
+        <LoginButton />
+        <Footer />
+      </form>
   );
 };
 

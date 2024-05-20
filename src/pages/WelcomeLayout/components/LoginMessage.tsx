@@ -1,3 +1,5 @@
+import React from 'react';
+
 // LoginMessage component
 export default function LoginMessage() {
     return (

@@ -10,16 +10,18 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
+    "jsx": "react", // This should be 'react'
 
     /* Linting */
     "strict": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+
+    /* Output directory */
+    "outDir": "dist"
   },
-  "include": ["src"],
+  "include": ["src/**/*.tsx"], // Make sure this includes your .tsx files
   "references": [{ "path": "./tsconfig.node.json" }]
 }

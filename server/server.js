@@ -1,6 +1,5 @@
 import express from "express";
 import dotenv from "dotenv";
-dotenv.config({ path: "../config.env" });
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import url from 'url';
@@ -11,11 +10,12 @@ import lostRequestRouter from "./routes/lostRequestRoutes.js";
 import errorHandler from "./middleware/errorhandling.js";
 import claimRouter from "./routes/claimRoutes.js";
 
+dotenv.config({ path: "../config.env" });
+
 const app = express();
 
 app.use(cookieParser());
 app.use(express.json());
-app.use(cors());
 
 const corsOptions = {
     origin: "http://localhost:5173",

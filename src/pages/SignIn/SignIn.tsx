@@ -93,7 +93,7 @@ const SignIn: React.FC = () => {
       setUserType(result.userType);
       setToken(result.token);
       // move to the home page
-      navigate("/home");
+      navigate("/signup");
     }
   };
 

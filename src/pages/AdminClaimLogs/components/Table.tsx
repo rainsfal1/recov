@@ -1,5 +1,6 @@
 // Table
 import { TableRow } from "./TableRow";
+import React from 'react';
 
 export function Table({ data = [], onDelete, sortOption }) {
 

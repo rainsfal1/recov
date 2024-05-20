@@ -9,6 +9,7 @@ import { Header } from "./components/Header";
 import { Sidebar } from "./components/Sidebar";
 import { InfoCard } from "./components/InfoCard";
 import { StatisticCard } from "./components/StatisticCard";
+import React from 'react';
 
 export default function AdminDashboard() {
   const [totalLostItems, setTotalLostItems] = useState(0);

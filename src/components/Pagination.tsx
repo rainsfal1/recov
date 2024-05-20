@@ -1,5 +1,6 @@
 // Pagination.js
 import { useNavigate, useLocation } from "react-router-dom";
+import React from 'react';
 
 export function Pagination({
                                currentPage,

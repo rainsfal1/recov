@@ -15,7 +15,7 @@ export default function MyAccount() {
             setIsLoading(true);
             setError(null);
             try {
-                const response = await fetch("http://localhost:3000/api/v1/items/userItems", {
+                const response = await fetch("/api/v1/items/userItems", {
                     method: "GET",
                     headers: {
                         Authorization: `Bearer ${token}`,

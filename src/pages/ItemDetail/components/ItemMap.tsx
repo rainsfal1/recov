@@ -1,3 +1,5 @@
+import React from 'react';
+
 export function ItemMap({ src }) {
   const defaultSrc = 'public/placeholderImg.svg';
   const mapSrc = src || defaultSrc;

@@ -1,4 +1,5 @@
 import { ArrowUpDownIcon } from "../../public/itemIcons/itemIcons";
+import React from 'react';
 
 export function SortBy({ selectedOption, setSelectedOption, options }) {
     const handleChange = (event) => {

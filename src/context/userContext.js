@@ -1,15 +1,18 @@
-import { jsx as _jsx } from "react/jsx-runtime";
-import React, { createContext, useEffect, useState } from "react";
-const UserContext = createContext({});
-const getInitialStateValueFromCookie = () => {
-    const cookies = Object.fromEntries(document.cookie.split(";").map((cookie) => cookie.trim().split("=")));
-    const isLoggedInCookie = cookies.loggedIn;
-    const userTypeCookie = cookies.userType;
-    const tokenCookie = cookies.token;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.useUserContext = exports.UserContextProvider = exports.UserContext = void 0;
+var react_1 = require("react");
+var UserContext = (0, react_1.createContext)({});
+exports.UserContext = UserContext;
+var getInitialStateValueFromCookie = function () {
+    var cookies = Object.fromEntries(document.cookie.split(";").map(function (cookie) { return cookie.trim().split("="); }));
+    var isLoggedInCookie = cookies.loggedIn;
+    var userTypeCookie = cookies.userType;
+    var tokenCookie = cookies.token;
     console.log("checking the cookies initial values", JSON.stringify({
-        isLoggedInCookie,
-        userTypeCookie,
-        tokenCookie,
+        isLoggedInCookie: isLoggedInCookie,
+        userTypeCookie: userTypeCookie,
+        tokenCookie: tokenCookie,
     }));
     return {
         loggedIn: isLoggedInCookie,
@@ -17,22 +20,22 @@ const getInitialStateValueFromCookie = () => {
         token: tokenCookie,
     };
 };
-function UserContextProvider({ children }) {
-    const initialState = getInitialStateValueFromCookie();
-    const [loggedIn, setLoggedIn] = useState(
-        initialState.loggedIn === 'true' ? true : initialState.loggedIn === 'false' ? false : undefined
-    );
-    const [userType, setUserType] = useState(getInitialStateValueFromCookie().userType);
-    const [token, setToken] = useState(getInitialStateValueFromCookie().token);
-    useEffect(() => {
+function UserContextProvider(_a) {
+    var children = _a.children;
+    var initialState = getInitialStateValueFromCookie();
+    var _b = (0, react_1.useState)(initialState.loggedIn === 'true' ? true : initialState.loggedIn === 'false' ? false : undefined), loggedIn = _b[0], setLoggedIn = _b[1];
+    var _c = (0, react_1.useState)(initialState.userType), userType = _c[0], setUserType = _c[1];
+    var _d = (0, react_1.useState)(initialState.token), token = _d[0], setToken = _d[1];
+    (0, react_1.useEffect)(function () {
         // Update browser cookies when logged-in state or user type changes
-        document.cookie = `loggedIn=${loggedIn};`;
-        document.cookie = `userType=${userType};`;
-        document.cookie = `token=${token};`;
+        document.cookie = "loggedIn=".concat(loggedIn, ";");
+        document.cookie = "userType=".concat(userType, ";");
+        document.cookie = "token=".concat(token, ";");
     }, [loggedIn, userType, token]);
-    return (_jsx(UserContext.Provider, { value: { loggedIn, userType, setLoggedIn, setUserType, token, setToken }, children: children }));
+    return (react_1.default.createElement(UserContext.Provider, { value: { loggedIn: loggedIn, userType: userType, setLoggedIn: setLoggedIn, setUserType: setUserType, token: token, setToken: setToken } }, children));
 }
+exports.UserContextProvider = UserContextProvider;
 function useUserContext() {
-    return React.useContext(UserContext);
+    return react_1.default.useContext(UserContext);
 }
-export { UserContext, UserContextProvider, useUserContext };
+exports.useUserContext = useUserContext;

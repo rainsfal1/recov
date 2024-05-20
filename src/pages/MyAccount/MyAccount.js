@@ -1,43 +1,116 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { Header } from "../../components/Header";
-import { AccountDetails } from "./components/AccountDetails";
-import { SubmissionsList } from "./components/SubmissionList";
-import { ListLoader } from "../../../public/Loader/ListLoader";
-import { useState, useEffect } from "react";
-import { useUserContext } from "../../context/userContext";
-export default function MyAccount() {
-    const [submissions, setSubmissions] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
-    const { token } = useUserContext();
-    useEffect(() => {
-        const fetchSubmissions = async () => {
-            setIsLoading(true);
-            setError(null);
-            try {
-                const response = await fetch("/api/v1/items/userItems", {
-                    method: "GET",
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                });
-                if (!response.ok) {
-                    throw new Error("Failed to fetch submissions");
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = require("react");
+var Header_1 = require("../../components/Header");
+var AccountDetails_1 = require("./components/AccountDetails");
+var SubmissionList_1 = require("./components/SubmissionList");
+//import { Loader } from "../../../public/Loader/Loader";
+var react_2 = require("react");
+var userContext_1 = require("../../context/userContext");
+function MyAccount() {
+    var _this = this;
+    var _a = (0, react_2.useState)([]), submissions = _a[0], setSubmissions = _a[1];
+    var _b = (0, react_2.useState)(false), isLoading = _b[0], setIsLoading = _b[1];
+    var _c = (0, react_2.useState)(null), error = _c[0], setError = _c[1];
+    var token = (0, userContext_1.useUserContext)().token;
+    (0, react_2.useEffect)(function () {
+        var fetchSubmissions = function () { return __awaiter(_this, void 0, void 0, function () {
+            var response, data, submissionsToPass, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        setIsLoading(true); // Set loading state to true before fetching items
+                        setError(null); // Reset error state before fetching items
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 4, 5, 6]);
+                        console.log("Hello Samama");
+                        console.log("Here Goes The Token", token);
+                        console.log(JSON.stringify({ token: token }));
+                        return [4 /*yield*/, fetch("http://localhost:3000/api/v1/items/userItems", {
+                                method: "GET",
+                                headers: {
+                                    Authorization: "Bearer ".concat(token),
+                                },
+                            })];
+                    case 2:
+                        response = _a.sent();
+                        console.log("I am after the api call");
+                        if (!response.ok) {
+                            throw new Error("Failed to fetch submissions");
+                        }
+                        return [4 /*yield*/, response.json()];
+                    case 3:
+                        data = _a.sent();
+                        submissionsToPass = data.data.items;
+                        console.log("I am before settingSubmusssions", submissionsToPass);
+                        setSubmissions(submissionsToPass);
+                        console.log(submissions);
+                        return [3 /*break*/, 6];
+                    case 4:
+                        error_1 = _a.sent();
+                        setError(error_1); // Set error state if there's an error
+                        return [3 /*break*/, 6];
+                    case 5:
+                        setIsLoading(false); // Set loading state to false after fetching items
+                        return [7 /*endfinally*/];
+                    case 6: return [2 /*return*/];
                 }
-                const data = await response.json();
-                const submissionsToPass = data.data.items;
-                setSubmissions(submissionsToPass);
-            }
-            catch (error) {
-                setError(error);
-            }
-            finally {
-                setIsLoading(false);
-            }
-        };
+            });
+        }); };
+        console.log("I am in Use Effect 2");
+        // Fetch items whenever the currentPage changes
         fetchSubmissions();
-    }, []);
-    return (_jsx("main", { className: "container mx-auto py-12 px-12 md:px-6", children: _jsxs("div", { className: "space-y-8", children: [_jsxs("div", { className: "space-y-4", children: [_jsx(Header, { title: "My Account", paragraph: "", iconSize: "h-28 w-28" }), " ", _jsx(AccountDetails, {})] }), _jsx("div", { className: "space-y-8", children: _jsxs("div", { className: "space-y-4", children: [_jsx("h2", { className: "text-4xl my-2 font-semibold", children: "My Submissions" }), error ? (_jsxs("div", { children: ["Error: ", error.message] }) // Display the error message when error is not null
-                            ) : isLoading ? (_jsx(ListLoader, {}) // Display the loader when isLoading is true
-                            ) : (_jsx(SubmissionsList, { submissions: submissions }))] }) })] }) }));
+    }, []); // Dependency on currentPage
+    return (<main className="container mx-auto py-12 px-12 md:px-6">
+        <div className="space-y-8">
+          <div className="space-y-4">
+            <Header_1.Header title="My Account" paragraph="" iconSize="h-28 w-28"/>{" "}
+            <AccountDetails_1.AccountDetails />
+          </div>
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <h2 className="text-4xl my-2 font-semibold">My Submissions</h2>
+              <SubmissionList_1.SubmissionsList submissions={submissions}/>
+            </div>
+          </div>
+        </div>
+      </main>);
 }
+exports.default = MyAccount;

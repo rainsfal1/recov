@@ -1,5 +1,6 @@
 // BarChart.js
 import { ResponsiveBar } from "@nivo/bar";
+import React from 'react';
 
 export function BarChart({ data }) {
   return (

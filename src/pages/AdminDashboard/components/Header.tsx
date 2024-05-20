@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Button } from "../../../../@/components/ui/button";
 import { PageIcon } from "../../../../public/pageIcon/PageIcon";
 import {LogOutIcon} from "../../../../public/optionIcons/optionItems";
+import React from 'react';
 
 export function Header() {
   const handleLogout = () => {

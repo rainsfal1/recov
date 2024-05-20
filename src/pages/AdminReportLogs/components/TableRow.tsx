@@ -6,6 +6,7 @@ import {
   CheckIcon,
   EyeIcon,
 } from "../../../../public/itemIcons/itemIcons";
+import React from 'react';
 
 export function TableRow({
                            data,
@@ -15,7 +16,7 @@ export function TableRow({
                                  const claimId = data._id;
                                  console.log("Claim ID", claimId);
                                  const response = await fetch(
-                                     `http://localhost:3000/api/v1/items/acceptRequest?claimId=${claimId}`,
+                                     `/api/v1/items/acceptRequest?claimId=${claimId}`,
                                      {
                                        method: "PATCH",
                                      }
@@ -34,7 +35,7 @@ export function TableRow({
                                  const claimId = data._id;
                                  console.log("Claim ID", claimId);
                                  const response = await fetch(
-                                     `http://localhost:3000/api/v1/items/rejectRequest?claimId=${claimId}`,
+                                     `/api/v1/items/rejectRequest?claimId=${claimId}`,
                                      {
                                        method: "PATCH",
                                      }

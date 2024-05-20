@@ -1,3 +1,4 @@
+import React from 'react';
 export default function SignUpMessage() {
   return (
     <div className="create-account-container">

@@ -1,5 +1,6 @@
 // ReportTable.tsx
 import { TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "../../../../@/components/ui/table";
+import React from 'react';
 
 export function ReportTable({ data }) {
   return (

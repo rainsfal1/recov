@@ -4,6 +4,7 @@ import { Table } from "./components/Table";
 import { useEffect, useState } from "react";
 import { Pagination } from "../../components/Pagination";
 import { useLocation } from "react-router-dom"; // Import useLocation
+import React from "react";
 
 export default function ClaimLogs() {
   const location = useLocation();

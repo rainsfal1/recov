@@ -3,6 +3,7 @@ import { LogsHeader } from "../../components/LogsHeader";
 import { Table } from "./components/Table";
 import { Pagination } from "../../components/Pagination";
 import { useState, useEffect } from "react";
+import React from 'react';
 
 export default function AdminReportLogs() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -20,7 +21,7 @@ export default function AdminReportLogs() {
     try {
       console.log("Fetching data ");
       const response = await fetch(
-          `http://localhost:3000/api/v1/claim/getClaim?page=${currentPage}`
+          `/api/v1/claim/getClaim?page=${currentPage}`
       );
       const data = await response.json();
       if (!response.ok) {

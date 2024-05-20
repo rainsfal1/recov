@@ -1,8 +1,10 @@
+
 import {Link} from "react-router-dom";
 import { PageIcon } from "../../public/pageIcon/PageIcon"
 import {ArrowUpDownIcon, SearchIcon} from "../../public/itemIcons/itemIcons";
 import {Input} from "../../@/components/ui/input";
 import { useNavigate } from 'react-router-dom';
+import React from 'react';
 
 export function LogsHeader
 ({ title, placeholder, baseRoute, selectedOption, setSelectedOption, options }) {

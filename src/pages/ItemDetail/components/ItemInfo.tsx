@@ -1,4 +1,5 @@
 import { PhoneIcon } from "../../../../public/itemIcons/itemIcons";
+import React from 'react';
 
 export function ItemInfo({ title, description, phone }) {
   return (

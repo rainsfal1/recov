@@ -1,3 +1,5 @@
+import React from 'react';
+
 // SignIn component
 export default function SignIn() {
     return (

@@ -1,4 +1,5 @@
 import { LocateIcon, MailIcon, CalendarIcon } from "../../../../public/itemIcons/itemIcons";
+import React from 'react';
 
 export function ItemLocation({ location, email, dateReported }) {
   return (

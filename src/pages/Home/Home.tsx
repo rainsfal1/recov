@@ -3,6 +3,7 @@ import { useNavigate, useOutlet } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Option } from './components/Option';
 import { Footer } from './components/Footer';
+import React from 'react';
 
 import { SearchIcon, LuggageIcon, LogInIcon, UserIcon } from '../../../public/itemIcons/itemIcons';
 

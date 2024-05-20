@@ -9,6 +9,7 @@ import {
   ShoppingBagIcon,
   UserIcon,
 } from "../../../../public/categoryIcons/categoryIcons";
+import React from 'react';
 
 interface Item {
   _id: string;

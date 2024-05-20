@@ -3,6 +3,8 @@ import { Table } from "./components/Table";
 import { useEffect, useState } from "react";
 import { Pagination } from "../../components/Pagination";
 import { LogsHeader } from "../../components/LogsHeader";
+import React from 'react';
+
 // import { deleteRecord } from './api'; // Import your API function
 
 // // Sample data for the table

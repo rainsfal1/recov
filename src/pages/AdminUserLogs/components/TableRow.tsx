@@ -3,6 +3,7 @@ import { Button } from "../../../../@/components/ui/button";
 import {
   Trash2Icon,
 } from "../../../../public/itemIcons/itemIcons";
+import React from 'react';
 
 export function TableRow({
   data,

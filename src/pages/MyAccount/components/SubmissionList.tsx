@@ -2,21 +2,22 @@ import React from "react";
 import "./SubmissionItem";
 import { SubmissionItem } from "./SubmissionItem";
 interface SubmissionItemProps {
-  title: string;
-  date: string;
-  status: string;
-  id: string;
+    title: string;
+    date: string;
+    status: string;
+    id: string;
 }
 
 interface SubmissionsListProps {
-  submissions: SubmissionItemProps[];
+    submissions: SubmissionItemProps[];
 }
 
 export const SubmissionsList: React.FC<SubmissionsListProps> = ({
-                                                                  submissions,
+                                                                    submissions,
                                                                 }) => (
     <div className="divide-y rounded-lg border">
-        {submissions.map((submission) => {
-            return <SubmissionItem {...submission} key={submission.id} status={submission.status === "false" ? "Found" : "Lost"} />;        })}
+        {submissions.map((submission) => (
+            <SubmissionItem {...submission} key={submission.id} />
+        ))}
     </div>
 );

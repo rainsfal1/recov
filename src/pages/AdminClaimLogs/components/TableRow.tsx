@@ -8,6 +8,7 @@ import {
 } from "../../../../public/itemIcons/itemIcons";
 import { useState } from "react";
 import { LoggedClaimDetails } from "./LoggedClaimDetails/LoggedClaimDetails"; // Import your modal component
+import React from 'react';
 
 export function TableRow({
   data,
@@ -17,7 +18,7 @@ export function TableRow({
         const claimId = data._id;
         console.log("Claim ID", claimId);
         const response = await fetch(
-          `http://localhost:3000/api/v1/claim/acceptClaim?claimId=${claimId}`,
+          `/api/v1/claim/acceptClaim?claimId=${claimId}`,
           {
             method: "PATCH",
           }
@@ -36,7 +37,7 @@ export function TableRow({
         const claimId = data._id;
         console.log("Claim ID", claimId);
         const response = await fetch(
-          `http://localhost:3000/api/v1/claim/rejectClaim?claimId=${claimId}`,
+          `/api/v1/claim/rejectClaim?claimId=${claimId}`,
           {
             method: "PATCH",
             body: JSON.stringify(data),
@@ -57,7 +58,7 @@ export function TableRow({
         const claimId = data._id;
         console.log("Claim ID", claimId);
         const response = await fetch(
-          `http://localhost:3000/api/v1/claim/deleteClaim?claimId=${claimId}`,
+          `/api/v1/claim/deleteClaim?claimId=${claimId}`,
           {
             method: "DELETE",
           }

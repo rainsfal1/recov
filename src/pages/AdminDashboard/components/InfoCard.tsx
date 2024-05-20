@@ -1,5 +1,6 @@
 // InfoCard.js
 import { CardTitle, CardHeader, CardContent, Card } from "../../../../@/components/ui/card";
+import React from 'react';
 
 export function InfoCard({ title, icon, children }) {
   return (

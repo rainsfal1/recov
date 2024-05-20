@@ -1,7 +1,9 @@
+import React from 'react';
+
 import { Header } from "../../components/Header";
 import { AccountDetails } from "./components/AccountDetails";
 import { SubmissionsList } from "./components/SubmissionList";
-import { ListLoader } from "../../../public/Loader/ListLoader";
+//import { Loader } from "../../../public/Loader/Loader";
 import { useState, useEffect } from "react";
 import { useUserContext } from "../../context/userContext";
 
@@ -13,11 +15,14 @@ export default function MyAccount() {
 
   useEffect(() => {
     const fetchSubmissions = async () => {
-      setIsLoading(true);
-      setError(null);
+      setIsLoading(true); // Set loading state to true before fetching items
+      setError(null); // Reset error state before fetching items
       try {
+        console.log("Hello Samama");
+        console.log("Here Goes The Token", token);
+        console.log(JSON.stringify({ token }));
         const response = await fetch(
-            "/api/v1/items/userItems",
+            "http://localhost:3000/api/v1/items/userItems",
             {
               method: "GET",
               headers: {
@@ -25,20 +30,25 @@ export default function MyAccount() {
               },
             }
         );
+        console.log("I am after the api call");
         if (!response.ok) {
           throw new Error("Failed to fetch submissions");
         }
         const data = await response.json();
         const submissionsToPass = data.data.items;
+        console.log("I am before settingSubmusssions", submissionsToPass);
         setSubmissions(submissionsToPass);
+        console.log(submissions);
       } catch (error) {
-        setError(error);
+        setError(error); // Set error state if there's an error
       } finally {
-        setIsLoading(false);
+        setIsLoading(false); // Set loading state to false after fetching items
       }
     };
+    console.log("I am in Use Effect 2");
+    // Fetch items whenever the currentPage changes
     fetchSubmissions();
-  }, []);
+  }, []); // Dependency on currentPage
 
   return (
       <main className="container mx-auto py-12 px-12 md:px-6">
@@ -50,13 +60,7 @@ export default function MyAccount() {
           <div className="space-y-8">
             <div className="space-y-4">
               <h2 className="text-4xl my-2 font-semibold">My Submissions</h2>
-              {error ? (
-                  <div>Error: {error.message}</div> // Display the error message when error is not null
-              ) : isLoading ? (
-                  <ListLoader /> // Display the loader when isLoading is true
-              ) : (
-                  <SubmissionsList submissions={submissions} />
-              )}
+              <SubmissionsList submissions={submissions} />
             </div>
           </div>
         </div>

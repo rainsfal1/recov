@@ -3,6 +3,7 @@ import { Header } from '../../components/Header';
 import { ReportForm } from '../../components/ReportForm';
 import { RecentItems } from '../../components/RecentItems';
 import { Tips } from '../../components/Tips';
+import React from 'react';
 
 export default function FoundReport() {
   const [recentItems, setRecentItems] = useState([]);

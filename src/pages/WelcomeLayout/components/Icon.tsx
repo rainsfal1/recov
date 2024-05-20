@@ -1,4 +1,5 @@
 import "../welcomelayout.css";
+import React from 'react';
 
 // Icon component
 export default function Icon() {

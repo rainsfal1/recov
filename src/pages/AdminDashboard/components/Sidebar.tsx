@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { HomeIcon, PackageIcon, FileTextIcon } from "../../../../public/itemIcons/itemIcons";
+import React from 'react';
 
 export function Sidebar() {
   return (

@@ -46,9 +46,6 @@ export default function AdminDashboard() {
                 }
               >
                 <div className="text-3xl font-bold pb-3">{totalLostItems}</div>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  +5.2% from last month
-                </p>
               </InfoCard>
               <InfoCard
                 title="Total Found Items"
@@ -57,9 +54,6 @@ export default function AdminDashboard() {
                 }
               >
                 <div className="text-3xl font-bold pb-3">{totalFoundItems}</div>
-                <p className="text-sm text-gray-500  dark:text-gray-400">
-                  +3.8% from last month
-                </p>
               </InfoCard>
               <InfoCard
                 title="Pending Reports"
@@ -68,9 +62,6 @@ export default function AdminDashboard() {
                 }
               >
                 <div className="text-3xl font-bold  pb-3">{pendingReports}</div>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  +2 since last week
-                </p>
               </InfoCard>
               <InfoCard
                 title="Resolved Reports"
@@ -81,9 +72,6 @@ export default function AdminDashboard() {
                 <div className="text-3xl font-bold  pb-3">
                   {resolvedReports}
                 </div>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  +15 since last week
-                </p>
               </InfoCard>
             </div>
             <div className="grid gap-8">

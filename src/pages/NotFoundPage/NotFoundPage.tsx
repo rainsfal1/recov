@@ -1,11 +1,11 @@
 // NotFoundPage.tsx
-import { Button } from "../../../../../Recov/recov/@/components/ui/button"
+import { Button } from "../../../@/components/ui/button"
 import {  DialogTitle, DialogDescription, DialogHeader, DialogFooter, DialogContent, Dialog } from "../../../../../Recov/recov/@/components/ui/dialog"
-import { Label } from "../../../../../Recov/recov/@/components/ui/label"
-import { Input } from "../../../../../Recov/recov/@/components/ui/input"
-import { Textarea } from "../../../../../Recov/recov/@/components/ui/textarea"
+import { Label } from "../../../@/components/ui/label"
+import { Input } from "../../../@/components/ui/input"
+import { Textarea } from "../../../@/components/ui/textarea"
 import {Link} from 'react-router-dom'
-import {PageIcon} from "../../../../../Recov/recov/public/pageIcon/pageIcon"
+import {PageIcon} from "../../../public/pageIcon/pageIcon"
 
 export function NotFoundPage() {
     return (

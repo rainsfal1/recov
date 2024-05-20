@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { LogsHeader } from "./components/LogsHeader";
@@ -9,7 +10,7 @@ const fetchItemsForPage = async (page) => {
   try {
     console.log("Fetching items");
     const response = await fetch(
-        `http://localhost:3000/api/v1/items?page=${page}`
+        `/api/v1/items?page=${page}`
     );
     const data = await response.json();
     console.log("Fetched items", data.items);

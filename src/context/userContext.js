@@ -18,7 +18,10 @@ const getInitialStateValueFromCookie = () => {
     };
 };
 function UserContextProvider({ children }) {
-    const [loggedIn, setLoggedIn] = useState(getInitialStateValueFromCookie().loggedIn);
+    const initialState = getInitialStateValueFromCookie();
+    const [loggedIn, setLoggedIn] = useState(
+        initialState.loggedIn === 'true' ? true : initialState.loggedIn === 'false' ? false : undefined
+    );
     const [userType, setUserType] = useState(getInitialStateValueFromCookie().userType);
     const [token, setToken] = useState(getInitialStateValueFromCookie().token);
     useEffect(() => {

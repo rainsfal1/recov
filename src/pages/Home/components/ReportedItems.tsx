@@ -1,5 +1,4 @@
 import { FC, SVGProps } from 'react';
-import React from 'react';
 
 interface ItemCardProps {
   Icon: FC<SVGProps<SVGSVGElement>>;

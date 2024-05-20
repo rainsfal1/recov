@@ -1,7 +1,7 @@
-import { CardContent, Card, CardFooter } from "../../../../Recov/recov/@/components/ui/card";
+import { CardContent, Card, CardFooter } from "../../@/components/ui/card";
 import { ViewDetailsModal } from "./modal/ViewDetailsModal";
 import { StatusBadge } from "./StatusBadge";
-import { CalendarIcon, TagIcon } from "../../../../Recov/recov/public/itemIcons/itemIcons";
+import { CalendarIcon, TagIcon } from "../../public/itemIcons/itemIcons";
 import React, { useState } from "react";
 
 interface ItemCardProps {

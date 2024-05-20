@@ -1,15 +1,7 @@
 import { Link } from "react-router-dom";
-import { Button } from "../../../../../../Recov/recov/@/components/ui/button";
-import {
-  DropdownMenuTrigger,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuItem,
-  DropdownMenuContent,
-  DropdownMenu,
-} from "../../../../../../Recov/recov/@/components/ui/dropdown-menu";
-import { PageIcon } from "../../../../../../Recov/recov/public/pageIcon/pageIcon";
-import { LogOutIcon } from "../../../../../../Recov/recov/public/optionIcons/optionItems";
+import { Button } from "../../../../@/components/ui/button";
+import { PageIcon } from "../../../../public/pageIcon/pageIcon";
+import { LogOutIcon } from "../../../../public/optionIcons/optionItems";
 import { useUserContext } from "../../../context/userContext";
 export function Header() {
   const { setLoggedIn } = useUserContext();

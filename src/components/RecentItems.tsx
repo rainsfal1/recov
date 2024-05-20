@@ -1,6 +1,6 @@
-import { Card, CardContent } from '../../../../Recov/recov/@/components/ui/card';
+import { Card, CardContent } from '../../@/components/ui/card';
 import React from 'react';
-import { Button } from '../../../../Recov/recov/@/components/ui/button';
+import { Button } from '../../@/components/ui/button';
 
 type Item = {
   name: string;

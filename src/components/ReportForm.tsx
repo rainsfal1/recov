@@ -4,13 +4,13 @@ import {
   CardTitle,
   CardDescription,
   CardHeader,
-} from "../../../../Recov/recov/@/components/ui/card";
-import { Label } from "../../../../Recov/recov/@/components/ui/label";
-import { Input } from "../../../../Recov/recov/@/components/ui/input";
-import { Button } from "../../../../Recov/recov/@/components/ui/button";
-import {FormLoader} from "../../../../Recov/recov/public/Loader/FormLoader";
-import { Textarea } from "../../../../Recov/recov/@/components/ui/textarea";
-import { UploadIcon, CalendarIcon } from "../../../../Recov/recov/public/itemIcons/itemIcons";
+} from "../../@/components/ui/card";
+import { Label } from "../../@/components/ui/label";
+import { Input } from "../../@/components/ui/input";
+import { Button } from "../../@/components/ui/button";
+import {FormLoader} from "../../public/Loader/FormLoader";
+import { Textarea } from "../../@/components/ui/textarea";
+import { UploadIcon, CalendarIcon } from "../../public/itemIcons/itemIcons";
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import "react-calendar/dist/Calendar.css";

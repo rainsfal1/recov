@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Button } from "../../../../../Recov/recov/@/components/ui/button";
-import { CardContent, Card } from "../../../../../Recov/recov/@/components/ui/card";
+import { Button } from "../../../@/components/ui/button";
+import { CardContent, Card } from "../../../@/components/ui/card";
 import { ClaimModal } from "./ClaimModal";
 
 interface ItemProps {

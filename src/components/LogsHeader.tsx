@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
-import { PageIcon } from "../../../../Recov/recov/public/pageIcon/pageIcon"
-import { SearchIcon} from "../../../../Recov/recov/public/itemIcons/itemIcons";
-import {Input} from "../../../../Recov/recov/@/components/ui/input";
+import { PageIcon } from "../../public/pageIcon/pageIcon"
+import { SearchIcon} from "../../public/itemIcons/itemIcons";
+import {Input} from "../../@/components/ui/input";
 import { useNavigate } from 'react-router-dom';
 import {SortBy} from './SortBy'; // Import SortBy component
 

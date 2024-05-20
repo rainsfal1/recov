@@ -3,10 +3,10 @@ import {
   CardFooter,
   CardContent,
   Card,
-} from "../../../../../../Recov/recov/@/components/ui/card";
-import { Label } from "../../../../../../Recov/recov/@/components/ui/label";
-import { Input } from "../../../../../../Recov/recov/@/components/ui/input";
-import { Button } from "../../../../../../Recov/recov/@/components/ui/button";
+} from "../../../../@/components/ui/card";
+import { Label } from "../../../../@/components/ui/label";
+import { Input } from "../../../../@/components/ui/input";
+import { Button } from "../../../../@/components/ui/button";
 import { useUserContext } from "../../../context/userContext";
 
 export const AccountDetails = () => {

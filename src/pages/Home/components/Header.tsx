@@ -2,24 +2,24 @@ import {
   MoonIcon,
   LogOutIcon,
   BellIcon,
-} from "../../../../../../Recov/recov/public/optionIcons/optionItems";
-import { PageIcon } from "../../../../../../Recov/recov/public/pageIcon/pageIcon";
-import { Toggle } from "../../../../../../Recov/recov/@/components/ui/toggle";
+} from "../../../../public/optionIcons/optionItems";
+import { PageIcon } from "../../../../public/pageIcon/pageIcon";
+import { Toggle } from "../../../../@/components/ui/toggle";
 import React, { useEffect, useState } from "react";
 import { useUserContext } from "../../../context/userContext";
-import { Button } from "../../../../../../Recov/recov/@/components/ui/button";
+import { Button } from "../../../../@/components/ui/button";
 import {
   PopoverTrigger,
   PopoverContent,
   Popover,
-} from "../../../../../../Recov/recov/@/components/ui/popover";
+} from "../../../../@/components/ui/popover";
 import {
   CardTitle,
   CardDescription,
   CardHeader,
   CardContent,
   Card,
-} from "../../../../../../Recov/recov/@/components/ui/card";
+} from "../../../../@/components/ui/card";
 export const Header: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
   const { setLoggedIn } = useUserContext();

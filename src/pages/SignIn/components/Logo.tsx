@@ -1,5 +1,5 @@
 import React from 'react';
-import { PageIcon } from '../../../../../../Recov/recov/public/pageIcon/pageIcon';
+import { PageIcon } from '../../../../public/pageIcon/pageIcon';
 
 const Logo: React.FC = () => {
   return (

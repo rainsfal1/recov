@@ -1,6 +1,6 @@
-import {PackageIcon, Trash2Icon} from "../../../../../../Recov/recov/public/itemIcons/itemIcons";
+import {PackageIcon, Trash2Icon} from "../../../../public/itemIcons/itemIcons";
 import { StatusBadge } from "../../../components/StatusBadge";
-import {Button} from "../../../../../../Recov/recov/@/components/ui/button";
+import {Button} from "../../../../@/components/ui/button";
 
 interface SubmissionItemProps {
     title: string;

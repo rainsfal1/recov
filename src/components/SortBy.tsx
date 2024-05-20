@@ -1,5 +1,5 @@
 import { ArrowUpDownIcon
-} from "../../../../Recov/recov/public/itemIcons/itemIcons";
+} from "../../public/itemIcons/itemIcons";
 
 export  function SortBy({ selectedOption, setSelectedOption, options }) {
     const handleChange = (event) => {

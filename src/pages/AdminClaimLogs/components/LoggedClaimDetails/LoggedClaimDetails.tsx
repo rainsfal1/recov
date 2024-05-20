@@ -6,16 +6,20 @@ interface UserProps {
     fullName: string;
 }
 
+interface ItemProps {
+    date: string;
+    location: string;
+}
 
 interface DataProps {
     _id: string;
     image: string;
-    itemName: string;
-    category: string;
-    date: string;
-    location: string;
+    additionalInfo: string;
+    title: string;
     description: string;
+    item: ItemProps;
     user: UserProps;
+    add: string;
 }
 interface ViewDetailsModalProps {
     isOpen: boolean;
@@ -24,7 +28,7 @@ interface ViewDetailsModalProps {
 }
 
 
-export const ReportLogsDetails: React.FC<ViewDetailsModalProps> = ({ isOpen, onClose, data }) => {
+export const LoggedClaimDetails: React.FC<ViewDetailsModalProps> = ({ isOpen, onClose, data }) => {
 
     const [isClaimModalOpen, setIsClaimModalOpen] = useState(false);
     const modalClass = isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none';
@@ -47,24 +51,25 @@ export const ReportLogsDetails: React.FC<ViewDetailsModalProps> = ({ isOpen, onC
                   onClick={stopPropagation}>
                 <Card className="p-2 rounded-3xl">
                     <CardContent>
-                        <h1 className="text-3xl pl-2 py-4 font-bold tracking-tighter sm:text-4xl md:text-4xl">Report Details</h1>
-                        <p className="text-gray-500 pl-2 text-2xl mb-3 dark:text-gray-400 max-w-[650px]">Details of Report sent by the user</p>
+                        <h1 className="text-3xl pl-2 py-4 font-bold tracking-tighter sm:text-4xl md:text-4xl">Claim Details</h1>
+                        <p className="text-gray-500 pl-2 text-2xl mb-3 dark:text-gray-400 max-w-[650px]">Details of claim report sent by the user</p>
                         <div className="grid grid-cols-2 gap-4">
                             <div>
-                                <img src={data.image || defaultImage} alt={data.itemName}
+                                <img src={data.image || defaultImage} alt={data.title}
                                      className="w-full h-auto object-cover rounded-2xl"/>
                             </div>
                             <div className="pl-5">
-                                <p className="text-3xl mb-1">{data.itemName}</p>
+                                <p className="text-xl mb-1">{data.title}</p>
+                                <h3 className="text-3xl">How you lost it?</h3>
                                 <p className="text-2xl pl-1 text-gray-500 mb-8"> {data.description}</p>
-                                <p className="text-xl text-gray-800 pl-1 mb-2">Category: <span
-                                    className="text-gray-500">{data.category}</span></p>
+                                <p className="text-xl text-gray-800 pl-1 mb-2">Location: <span
+                                    className="text-gray-500">{data.item?.location}</span></p>
                                 <p className="text-xl text-gray-800 pl-1 mb-2">Date: <span
-                                    className="text-gray-500">{new Date(data.date).toLocaleDateString()}</span></p>
+                                    className="text-gray-500">{data.item?.date}</span></p>
                                 <p className="text-xl text-gray-800 pl-1 mb-2">Reported By: <span
                                     className="text-gray-500">{data.user?.fullName}</span></p>
-                                <p className="text-xl text-gray-800 pl-1 mb-2">Location: <span
-                                    className="text-gray-500">{data.location}</span></p>
+                                <p className="text-xl text-gray-800 pl-1 mb-2">Additional Details: <span
+                                    className="text-gray-500">{data.additionalInfo}</span></p>
                             </div>
                         </div>
 

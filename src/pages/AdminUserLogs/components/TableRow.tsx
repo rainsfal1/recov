@@ -1,11 +1,11 @@
 // TableRow
-import { Button } from "../../../../../../Recov/recov/@/components/ui/button";
+import { Button } from "../../../../@/components/ui/button";
 import {
   Trash2Icon,
   XIcon,
   CheckIcon,
   EyeIcon,
-} from "../../../../../../Recov/recov/public/itemIcons/itemIcons";
+} from "../../../../public/itemIcons/itemIcons";
 import { useState } from "react";
 
 export function TableRow({

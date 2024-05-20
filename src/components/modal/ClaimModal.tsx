@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Label } from "../../../../../Recov/recov/@/components/ui/label";
-import { Textarea } from "../../../../../Recov/recov/@/components/ui/textarea";
-import { Input } from "../../../../../Recov/recov/@/components/ui/input";
-import { Button } from "../../../../../Recov/recov/@/components/ui/button";
-import { CardContent, Card } from "../../../../../Recov/recov/@/components/ui/card";
-import { UploadIcon } from "../../../../../Recov/recov/public/itemIcons/itemIcons";
+import { Label } from "../../../@/components/ui/label";
+import { Textarea } from "../../../@/components/ui/textarea";
+import { Input } from "../../../@/components/ui/input";
+import { Button } from "../../../@/components/ui/button";
+import { CardContent, Card } from "../../../@/components/ui/card";
+import { UploadIcon } from "../../../public/itemIcons/itemIcons";
 import { useUserContext } from "../../context/userContext";
 
 interface ClaimModalProps {

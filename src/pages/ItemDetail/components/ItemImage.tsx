@@ -1,4 +1,3 @@
-import React from 'react';
 
 export function ItemImage({ src }) {
   const defaultSrc = 'public/placeholderImg.svg';

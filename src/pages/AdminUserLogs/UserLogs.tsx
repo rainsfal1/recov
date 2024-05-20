@@ -3,7 +3,7 @@ import { LogsHeader } from "../../components/LogsHeader";
 import { Table } from "./components/Table";
 import { Pagination } from "../../components/Pagination";
 import { useState, useEffect } from "react"; // Added useEffect
-import {ListLoader} from "../../../../../Recov/recov/public/Loader/ListLoader"; // Import ListLoader
+import {ListLoader} from "../../../public/Loader/ListLoader"; // Import ListLoader
 
 export default function AdminReportLogs() {
   const [currentPage, setCurrentPage] = useState(1);

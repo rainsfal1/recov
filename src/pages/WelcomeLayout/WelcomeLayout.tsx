@@ -1,4 +1,3 @@
-import React from 'react';
 import "./welcomelayout.css";
 import Icon from "./components/Icon";
 import LoginMessage from "./components/LoginMessage";

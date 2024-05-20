@@ -9,7 +9,7 @@ import {
     LuggageIcon,
     LogInIcon,
     UserIcon,
-} from "../../../../../Recov/recov/public/itemIcons/itemIcons";
+} from "../../../public/itemIcons/itemIcons";
 
 export default function Home({ isLoggedIn }) {
     const navigate = useNavigate();

@@ -3,7 +3,7 @@ import {
   CardHeader,
   CardContent,
   Card,
-} from "../../../../../../Recov/recov/@/components/ui/card";
+} from "../../../../@/components/ui/card";
 //import { PieChart } from "./PieChart";
 import { BarChart } from "./BarChart";
 // import { ReportTable } from "./ReportTable.tsx";

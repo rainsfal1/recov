@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import {
   PackageIcon,
   FileTextIcon,
-} from "../../../../../Recov/recov/public/itemIcons/itemIcons";
+} from "../../../public/itemIcons/itemIcons";
 
 // Import the components
 import { Header } from "./components/Header";

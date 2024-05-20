@@ -1,4 +1,4 @@
-import { LocateIcon, MailIcon, CalendarIcon } from "../../../../../../Recov/recov/public/itemIcons/itemIcons";
+import { LocateIcon, MailIcon, CalendarIcon } from "../../../../public/itemIcons/itemIcons";
 
 export function ItemLocation({ location, email, dateReported }) {
   return (

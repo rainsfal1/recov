@@ -12,8 +12,8 @@ import { useUserContext } from "../../../context/userContext";
 export const AccountDetails = () => {
   const { token } = useUserContext();
   const [form, setForm] = useState({
-    name: "Jared Palmer",
-    email: "example@acme.inc",
+    name: token.email,
+    email: token.email,
     password: "",
     confirmPassword: "",
   });

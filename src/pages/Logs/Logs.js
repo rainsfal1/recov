@@ -8,7 +8,7 @@ import { ListLoader } from "../../../public/Loader/ListLoader";
 const fetchItemsForPage = async (page) => {
     try {
         console.log("Fetching items");
-        const response = await fetch(`http://localhost:3000/api/v1/items?page=${page}`);
+        const response = await fetch(`/api/v1/items?page=${page}`);
         const data = await response.json();
         console.log("Fetched items", data.items);
         return data.items;

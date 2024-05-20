@@ -17,7 +17,7 @@ export default function MyAccount() {
       setError(null);
       try {
         const response = await fetch(
-            "http://localhost:3000/api/v1/items/userItems",
+            "/api/v1/items/userItems",
             {
               method: "GET",
               headers: {

@@ -1,16 +1,18 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "es5",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
+    "module": "commonjs",
     "skipLibCheck": true,
 
-    /* Bundler mode */
+    "esModuleInterop": true,
     "moduleResolution": "node",
-    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": false,
     "isolatedModules": true,
-    "jsx": "react", // This should be 'react'
+    "noEmit": false,
+    "jsx": "react-jsx",
 
     /* Linting */
     "strict": false,
@@ -22,6 +24,6 @@
     /* Output directory */
     "outDir": "dist"
   },
-  "include": ["src/**/*.tsx"], // Make sure this includes your .tsx files
+  "include": ["/src"], // Make sure this includes your .tsx files
   "references": [{ "path": "./tsconfig.node.json" }]
 }

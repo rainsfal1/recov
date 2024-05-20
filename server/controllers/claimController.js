@@ -3,7 +3,7 @@ import asyncHandler from "express-async-handler";
 import jwt from "jsonwebtoken";
 import User from "./../model/usermodel.js";
 import claim from "./../model/claim.js";
-
+import notifications from "../model/notification.js";
 const createClaimRequest = asyncHandler(async (req, res) => {
   try {
     console.log("Hello");
@@ -52,12 +52,12 @@ const getClaimRequest = asyncHandler(async (req, res, next) => {
     console.log("Page this is being callled", page);
     const startIndex = (page - 1) * 6;
     const paginatedClaimRequests = await claim
-      .find()
-      .sort({ timestamp: -1 })
-      .skip(startIndex)
-      .limit(6)
-      .populate("user")
-      .populate("item");
+        .find()
+        .sort({ timestamp: -1 })
+        .skip(startIndex)
+        .limit(6)
+        .populate("user")
+        .populate("item");
     const totalClaims = await claim.countDocuments();
     const totalPages = Math.ceil(totalClaims / 6) + 1;
     res.status(200).json({
@@ -74,13 +74,29 @@ const getClaimRequest = asyncHandler(async (req, res, next) => {
 const acceptClaim = asyncHandler(async (req, res, next) => {
   try {
     const claimId = req.query.claimId;
-    console.log(claimId);
-    const claimRequest = await claim.findById(claimId);
+    const claimRequest = await claim
+        .findById(claimId)
+        .populate("user")
+        .populate("item");
+    console.log(claimRequest);
     if (!claimRequest) {
       throw new ApiError(404, "Claim request not found");
     }
     claimRequest.status = "Accepted";
     await claimRequest.save();
+    console.log(claimRequest);
+    const notificationMessageForBechara = `Your claim request for ${claimRequest.item.itemName} has been accepted.You may contact at ${claimRequest.item.email} for your item.`;
+    const notificationMessageForNeutral = `Claim request has been made by ${claimRequest.user.fullName} for ${claimRequest.item.itemName}.You may contact at ${claimRequest.user.email} for further details`;
+    const newNotification = await notifications.create({
+      user: claimRequest.user._id,
+      text: notificationMessageForBechara,
+    });
+
+    const notificationForNeutral = await notifications.create({
+      user: claimRequest.item._id,
+      text: notificationMessageForNeutral,
+    });
+
     res.status(200).json({
       ok: true,
     });
@@ -90,14 +106,22 @@ const acceptClaim = asyncHandler(async (req, res, next) => {
 });
 const rejectClaim = asyncHandler(async (req, res, next) => {
   try {
-    console.log("I was called Once Upon A Time in rejectClaim");
     const claimId = req.query.claimId;
-    const claimRequest = await claim.findById(claimId);
+    const claimRequest = await claim
+        .findById(claimId)
+        .populate("user")
+        .populate("item");
+    console.log(claimRequest);
     if (!claimRequest) {
       throw new ApiError(404, "Claim request not found");
     }
     claimRequest.status = "Rejected";
     await claimRequest.save();
+    const notificationMessageForBechara = `Your claim request for ${claimRequest.item.itemName} has been rejeccted`;
+    const newNotification = await notifications.create({
+      user: claimRequest.user._id,
+      text: notificationMessageForBechara,
+    });
     res.status(200).json({
       ok: true,
     });

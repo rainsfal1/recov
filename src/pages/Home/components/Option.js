@@ -1,3 +1,0 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { Link } from 'react-router-dom';
-export const Option = ({ Icon, title, description, to, }) => (_jsxs(Link, { className: "flex flex-col items-center justify-center p-20 bg-white rounded-lg shadow-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out", to: to, children: [_jsx(Icon, { className: "w-24 h-24 mb-4" }), _jsx("h3", { className: "text-2xl font-medium text-gray-900 dark:text-gray-100", children: title }), _jsx("p", { className: "text-xl text-gray-600 dark:text-gray-400", children: description })] }));

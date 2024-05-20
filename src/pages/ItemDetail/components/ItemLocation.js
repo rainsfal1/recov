@@ -1,5 +1,0 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { LocateIcon, MailIcon, CalendarIcon } from "../../../../public/itemIcons/itemIcons";
-export function ItemLocation({ location, email, dateReported }) {
-    return (_jsxs("div", { className: "flex flex-col md:flex-row items-center justify-between mt-4 gap-4", children: [_jsxs("div", { className: "flex items-center gap-2", children: [_jsx(LocateIcon, { className: "h-5 w-5 text-gray-500 dark:text-gray-400" }), _jsx("p", { className: "text-gray-500 text-base dark:text-gray-400", children: location })] }), _jsxs("div", { className: "flex items-center gap-2", children: [_jsx(MailIcon, { className: "h-5 w-5 text-gray-500 dark:text-gray-400" }), _jsx("p", { className: "text-gray-500 text-base  dark:text-gray-400", children: email })] }), _jsxs("div", { className: "flex items-center gap-2", children: [_jsx(CalendarIcon, { className: "h-5 w-5 text-gray-500 dark:text-gray-400" }), _jsx("p", { className: "text-gray-500 text-base dark:text-gray-400", children: dateReported })] })] }));
-}

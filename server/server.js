@@ -1,16 +1,16 @@
 import express from "express";
-import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import url from 'url';
-import path from 'path';
 import mongoose from "mongoose";
 import userRouter from "./routes/userRoutes.js";
+import dotenv from "dotenv";
 import lostRequestRouter from "./routes/lostRequestRoutes.js";
 import errorHandler from "./middleware/errorhandling.js";
 import claimRouter from "./routes/claimRoutes.js";
-
-dotenv.config({ path: "../config.env" });
+import notifcationRouter from "./routes/notificationRoutes.js";
+import * as url from "node:url";
+import path from "node:path";
+dotenv.config({ path: "./config.env" });
 
 const app = express();
 
@@ -35,6 +35,7 @@ mongoose
 app.use("/api/v1/", userRouter);
 app.use("/api/v1/items", lostRequestRouter);
 app.use("/api/v1/claim", claimRouter);
+app.use("/api/v1/notifications", notifcationRouter);
 app.use(errorHandler);
 
 // Define __dirname in ES6 module

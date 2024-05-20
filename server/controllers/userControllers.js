@@ -5,6 +5,7 @@ import asyncHandler from "express-async-handler";
 import dotenv from "dotenv";
 
 import { ApiError } from "../utils/ApiError.js";
+import { decode } from "punycode";
 dotenv.config({ path: "./config.env" });
 
 const registerUser = asyncHandler(async (req, res) => {
@@ -92,4 +93,25 @@ const updatePassword = asyncHandler(async (req, res) => {
     next(err);
   }
 });
-export { registerUser, LoginUser, updatePassword };
+const getUserDetails = asyncHandler(async (req, res) => {
+  try {
+    console.log("I am in verifyJWT try block");
+    // const token = req.headers.get("Authorization")
+    // console.log()
+    const token = req.header("Authorization");
+    console.log("Token inside the server:", token);
+    if (!token) {
+      throw new ApiError(401, "Unauthorized request");
+    }
+
+    const decodedToken = jwt.verify(token, "abc123");
+    console.log("decoded token:", decodedToken);
+    console.log("i am here in the userDetails");
+    res.status(200).json({
+      email: decodedToken.email,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+export { registerUser, LoginUser, updatePassword, getUserDetails };

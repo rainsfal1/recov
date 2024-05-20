@@ -2,7 +2,7 @@ import item from "./../model/lostItem.js";
 import asyncHandler from "express-async-handler";
 import jwt from "jsonwebtoken";
 import User from "./../model/usermodel.js";
-import notification from "../model/notification.js";
+import notifications from "../model/notification.js";
 const lostRequest = asyncHandler(async (req, res) => {
   try {
     console.log("Hello");
@@ -59,9 +59,9 @@ const getItem = asyncHandler(async (req, res) => {
 
   const startIndex = (page - 1) * pageSize;
   const paginatedItems = await item
-    .find({ adminApproval: true })
-    .skip(startIndex)
-    .limit(pageSize);
+      .find({ adminApproval: true })
+      .skip(startIndex)
+      .limit(pageSize);
   const totalItems = await item.countDocuments();
 
   const totalPages = Math.ceil(totalItems / pageSize);
@@ -93,15 +93,16 @@ const getStats = asyncHandler(async (req, res) => {
     const totalApprovedRequests = await item.find({ adminApproval: true });
     const totalRejectedRequests = await item.find({ adminApproval: false });
     const totalItems = await item.countDocuments();
-    const totalLostItems = await item.countDocuments({ itemType: "lost" });
-    const totalFoundItems = await item.countDocuments({ itemType: "found" });
+    const totalLostItems = await item.countDocuments({ itemType: "Lost" });
+    const totalFoundItems = await item.countDocuments({ itemType: "Found" });
     console.log("I am being called");
     res.json({
       data: {
         categoryCounts,
-        totalItems,
+        totalApprovedRequests: totalApprovedRequests.length,
         totalLostItems,
         totalFoundItems,
+        totalRejectedRequests: totalRejectedRequests.length,
       },
       ok: true,
     });
@@ -151,7 +152,7 @@ const getUserItems = asyncHandler(async (req, res) => {
 });
 const getItems = asyncHandler(async (req, res) => {
   console.log(
-    "Hello I am in the getItems function which will be used to get all the items for the admin to approve or reject"
+      "Hello I am in the getItems function which will be used to get all the items for the admin to approve or reject"
   );
   const page = parseInt(req.query.page);
   const pageSize = 10;
@@ -159,11 +160,11 @@ const getItems = asyncHandler(async (req, res) => {
   const startIndex = (page - 1) * pageSize;
 
   const items = await item
-    .find()
-    .sort({ createdAt: -1 })
-    .skip(startIndex)
-    .limit(pageSize)
-    .populate("user");
+      .find()
+      .sort({ createdAt: -1 })
+      .skip(startIndex)
+      .limit(pageSize)
+      .populate("user");
   const totalItems = await item.countDocuments();
 
   const totalPages = Math.ceil(totalItems / pageSize) + 1;
@@ -181,6 +182,7 @@ const getItems = asyncHandler(async (req, res) => {
 
 const acceptlostRequest = asyncHandler(async (req, res) => {
   try {
+    console.log("I am in the accept request function");
     const id = req.query.claimId;
     const itemToAccept = await item.findById(id);
     if (!itemToAccept) {
@@ -189,10 +191,16 @@ const acceptlostRequest = asyncHandler(async (req, res) => {
     itemToAccept.status = "Accepted";
     itemToAccept.adminApproval = true;
     await itemToAccept.save();
-    console.log("Item status has been updated successfully");
-    const notificationMessage = "Your request has been accepted";
-    console.log("Item to accept user", itemToAccept.user);
-    const newNotification = await notification.create({
+    const notificationMessage = `Your request for ${
+        itemToAccept.itemName
+    } made on ${itemToAccept.createdAt.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })} has been accepted.`;
+    console.log(`Item to accept user ${itemToAccept.user}`);
+    console.log(`Notification Message: ${notificationMessage}`);
+    const newNotification = await notifications.create({
       user: itemToAccept.user,
       text: notificationMessage,
     });
@@ -219,9 +227,15 @@ const rejectlostRequest = asyncHandler(async (req, res) => {
     itemToAccept.status = "Rejected";
     await itemToAccept.save();
     console.log("Item status has been updated successfully");
-    const notificationMessage = "Your request has been rejected";
+    const notificationMessage = `Your request for ${
+        itemToAccept.itemName
+    } made on ${itemToAccept.createdAt.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })} has been rejected.`;
     console.log("Item to accept user", itemToAccept.user);
-    const newNotification = await notification.create({
+    const newNotification = await notifications.create({
       user: itemToAccept.user,
       text: notificationMessage,
     });

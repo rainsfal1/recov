@@ -65,15 +65,22 @@ const SignIn = () => {
             password,
         };
         const result = await validateUser(user);
+        console.log('Result:', result);
         if (result.success) {
             // set the user type and logged in state
+            console.log('setLoggedIn function:', setLoggedIn);
             setLoggedIn(true);
+            console.log('setUserType function:', setUserType);
             setUserType(result.userType);
+            console.log('setToken function:', setToken);
             setToken(result.token);
             // move to the home page
+            console.log('navigate function:', navigate);
             navigate("/home");
         }
-    };
+        else {
+            setErrorMessage(result.message);
+        }
     return (_jsxs("form", { onSubmit: handleSubmit, className: "flex flex-col gap-8 bg-white p-8 l  w-full sm:w-64 md:w-2/6 lg:w-128 mx-auto my-auto min-h-screen", children: [_jsx(Logo, {}), _jsx(EmailInput, { email: email, onSetEmail: setEmail }), _jsx(PasswordInput, { password: password, onSetPassword: setPassword }), errorMessage && (_jsx("div", { style: { color: "red", fontSize: 16 }, children: errorMessage })), _jsx(LoginButton, {}), _jsx(Footer, {})] }));
 };
 export default SignIn;

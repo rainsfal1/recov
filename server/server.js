@@ -18,7 +18,7 @@ app.use(cookieParser());
 app.use(express.json());
 
 const corsOptions = {
-    origin: "http://localhost:5173",
+    origin: ["http://recov.live", "http://www.recov.live", "http://localhost:5173"],
     credentials: true, // Allow cookies, authorization headers, etc.
 };
 

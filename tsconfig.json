@@ -3,11 +3,11 @@
     "target": "es5",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "commonjs",
+    "module": "ES2020",
     "skipLibCheck": true,
 
     "esModuleInterop": true,
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": false,
     "isolatedModules": true,
